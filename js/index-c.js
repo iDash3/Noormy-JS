@@ -46,6 +46,12 @@ $().ready(function(){
        // code.
   },{scope: 'public_profile,email'});
   })
+  $('#fb-logout-item')
+    .click(function(){
+      FB.logout(function(response) {
+        
+    });
+  })
   $('.flame-b')
     .click(function(){
       alert('Random test')
