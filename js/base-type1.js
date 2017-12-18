@@ -1,34 +1,36 @@
-$().ready(function(){
-	$('fb-logout-item').hide()	
+$('#fb-logout-item').hide('slow')	
+
+setTimeout(function(){
+	console.log('FB loading...')
 	FB.getLoginStatus(function(response) {
-		if (response.status === 'connected') {
-	    // the user is logged in and has authenticated your
-	    // app, and response.authResponse supplies
-	    // the user's ID, a valid access token, a signed
-	    // request, and the time the access token 
-	    // and signed request each expire
-	    var uid = response.authResponse.userID;
-	    var accessToken = response.authResponse.accessToken;
-		$('#fb-login-item').hide()
-		$('#fb-logout-item').show()
-		$('#logged-out-div')
-			.hide()
-		$('#logged-in-div')
-			.show()
-		var flamePressed = 0;
-		$('.fire-button-general')
-			.click(function(){
-				flamePressed += 1;
-				let flamePower = "brightness("+((flamePressed * 5) + 30)+"%)";
-				console.log(flamePower) 
-				console.log(flamePressed) 
-				$('#fire-button')
-					.hide("slow")
-				$('#fire-button-clicked')
-					.show()
-				$('#fire-button-clicked')
-					.css("filter", flamePower);
-			})
+	if (response.status === 'connected') {
+    // the user is logged in and has authenticated your
+    // app, and response.authResponse supplies
+    // the user's ID, a valid access token, a signed
+    // request, and the time the access token 
+    // and signed request each expire
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+	$('#fb-login-item').hide()
+	$('#fb-logout-item').show()
+	$('#logged-out-div')
+		.hide()
+	$('#logged-in-div')
+		.show()
+	var flamePressed = 0;
+	$('.fire-button-general')
+		.click(function(){
+			flamePressed += 1;
+			let flamePower = "brightness("+((flamePressed * 5) + 30)+"%)";
+			console.log(flamePower) 
+			console.log(flamePressed) 
+			$('#fire-button')
+				.hide("slow")
+			$('#fire-button-clicked')
+				.show()
+			$('#fire-button-clicked')
+				.css("filter", flamePower);
+		})
 
 	} else if (response.status === 'not_authorized') {
 	    // the user is logged in to Facebook, 
@@ -37,13 +39,22 @@ $().ready(function(){
 	    // the user isn't logged in to Facebook.
 	  }
 	});
-	$('#fb-button')
+}, 100)
+
+$().ready(function(){
+	$('#fb-button, #fb-login-item')
 		.click(function(){
 			alert('Login a Facebook')
 			FB.login(function(response){
   			// Handle the response object, like in statusChangeCallback() in our demo
   			// code.
 	},{scope: 'public_profile,email'});
+		})
+	$('#fb-logout-item')
+		.click(function(){
+			FB.logout(function(response) {
+   			// Person is now logged out
+			});
 		})
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");
