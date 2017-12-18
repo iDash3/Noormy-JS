@@ -17,9 +17,9 @@ window.fbAsyncInit = function() {
           $('#fb-login-item').hide()
           $('#fb-logout-item').show()
           } else if (response.status === 'not_authorized') {
-            $('#sht-div').html('Not Authorized')
+            $('#sht-div').html('Authorize our app in order to use it. :)')
           } else {
-            $('#sht-div').html('<span>Not connected to Facebook. <a id="fb-blue">Click here</a> to connect.</span>');
+            $('#sht-div').html('<span>Not connected to Facebook. <b id="fb-blue">Click here</b> to connect.</span>');
             }
           });
         } else {
@@ -40,16 +40,17 @@ $().ready(function(){
   $('#fb-logout-item').hide()
   $('#fb-login-item, #fb-blue')
     .click(function(){
-      alert('Login to Facebook')
-     FB.login(function(response){
-       // Handle the response object, like in statusChangeCallback() in our demo
-       // code.
-  },{scope: 'public_profile,email'});
+      console.log('Facebook Login')
+      FB.login(function(response){
+        location.reload();
+    },{scope: 'public_profile,email'});
   })
+    
   $('#fb-logout-item')
     .click(function(){
+      console.log('Facebook Logout')
       FB.logout(function(response) {
-        
+        location.reload();
     });
   })
   $('.flame-b')

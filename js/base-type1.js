@@ -63,12 +63,12 @@ $().ready(function(){
 			console.log('Facebook Login')
 			FB.login(function(response){
 
-	},{scope: 'public_profile,email'});
-		})
+		},{scope: 'public_profile,email'});
+	})
 	$('#fb-logout-item')
 		.click(function(){
 			FB.logout(function(response) {
-				
+
 			});
 		})
 	var c = document.getElementById("mainCanvas");
