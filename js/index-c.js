@@ -1,6 +1,7 @@
 function fbLoginStatus(){
     FB.getLoginStatus(function(response) {
     console.log(response.status)
+    console.log(document.cookie)
         if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
@@ -60,7 +61,7 @@ $().ready(function(){
       },{scope: 'public_profile,email'});
   })
     
-  $('#fb-logout-item')
+  $('#fb-logout-item, .flame-b')
     .click(function(){
       console.log('Facebook Logout')
       FB.logout(function(response) {
@@ -73,6 +74,6 @@ $().ready(function(){
   })
   $('.flame-b')
     .click(function(){
-      alert('Random test')
+      console.log('Fckin click')
   })
 })
