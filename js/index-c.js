@@ -1,3 +1,20 @@
+function fbLoginStatus(){
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+            $('#sht-div').html('Ooh, baby. You are ready to go')
+            $('#fb-login-item').hide()
+            $('#fb-logout-item').show()
+        } else if (response.status === 'not_authorized') {
+            $('#sht-div').html('Authorize our app in order to use it. :)')
+        } else {
+            $('#sht-div').html('<span>Not connected to Facebook. <b id="fb-blue">Click here</b> to connect.</span>');
+        }
+    });
+    
+}
+
 window.fbAsyncInit = function() {
       FB.init({
         appId            : '522565318118931',
@@ -5,26 +22,14 @@ window.fbAsyncInit = function() {
         xfbml            : true,
         version          : 'v2.11'
       });
-
-       if (typeof(FB) != 'undefined' && FB != null ) {
-        console.log('SDK LOADED')
-        console.log('FB loading...')
-        FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-          var uid = response.authResponse.userID;
-          var accessToken = response.authResponse.accessToken;
-          $('#sht-div').html('Ooh, baby. You are ready to go')
-          $('#fb-login-item').hide()
-          $('#fb-logout-item').show()
-          } else if (response.status === 'not_authorized') {
-            $('#sht-div').html('Authorize our app in order to use it. :)')
-          } else {
-            $('#sht-div').html('<span>Not connected to Facebook. <b id="fb-blue">Click here</b> to connect.</span>');
-            }
-          });
+    
+        if (typeof(FB) != 'undefined' && FB != null ) {
+            console.log('SDK LOADED')
+            console.log('FB loading...')
+            fbLoginStatus()
         } else {
-          alert('Facebook was unable to load, please check your device and reload.')
-          console.log('SDK NOT LOADED')
+            alert('Facebook was unable to load, please check your device and reload.')
+            console.log('SDK NOT LOADED')
         }
     };
 
@@ -42,16 +47,24 @@ $().ready(function(){
     .click(function(){
       console.log('Facebook Login')
       FB.login(function(response){
-    },{scope: 'public_profile,email'});
-      location.reload();
+        if (response.authResponse) {
+          console.log('Welcome!  Fetching your information.... ');
+          fbLoginStatus()
+          FB.api('/me', function(response) {
+            console.log('Good to see you, ' + response.name + '.');
+          });
+        } else {
+          console.log('User cancelled login or did not fully authorize.');
+        }
+      },{scope: 'public_profile,email'});
   })
     
   $('#fb-logout-item')
     .click(function(){
       console.log('Facebook Logout')
       FB.logout(function(response) {
+            fbLoginStatus()
     });
-      location.reload();
   })
   $('.flame-b')
     .click(function(){

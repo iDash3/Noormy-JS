@@ -1,3 +1,37 @@
+function fbLoginStatus(){
+	FB.getLoginStatus(function(response) {
+		if (response.status === 'connected') {
+			var uid = response.authResponse.userID;
+			var accessToken = response.authResponse.accessToken;
+			$('#fb-login-item').hide()
+			$('#fb-logout-item').show()
+
+			$('#logged-out-div')
+			  .hide()
+			$('#logged-in-div')
+			  .show()
+			var flamePressed = 0;
+			$('.fire-button-general')
+			  .click(function(){
+			    flamePressed += 1;
+			    let flamePower = "brightness("+((flamePressed * 5) + 30)+"%)";
+			    console.log(flamePower) 
+			    console.log(flamePressed) 
+			    $('#fire-button')
+			      .hide("slow")
+			    $('#fire-button-clicked')
+			      .show()
+			    $('#fire-button-clicked')
+			      .css("filter", flamePower);
+			  })
+		} else if (response.status === 'not_authorized') {
+
+		} else {
+
+		}
+    });
+}
+
 window.fbAsyncInit = function() {
       FB.init({
         appId            : '522565318118931',
@@ -9,38 +43,7 @@ window.fbAsyncInit = function() {
      if (typeof(FB) != 'undefined' && FB != null ) {
         console.log('SDK LOADED')
         console.log('FB loading...')
-        FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-            var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
-            $('#fb-login-item').hide()
-            $('#fb-logout-item').show()
-
-            $('#logged-out-div')
-              .hide()
-            $('#logged-in-div')
-              .show()
-            var flamePressed = 0;
-            $('.fire-button-general')
-              .click(function(){
-                flamePressed += 1;
-                let flamePower = "brightness("+((flamePressed * 5) + 30)+"%)";
-                console.log(flamePower) 
-                console.log(flamePressed) 
-                $('#fire-button')
-                  .hide("slow")
-                $('#fire-button-clicked')
-                  .show()
-                $('#fire-button-clicked')
-                  .css("filter", flamePower);
-              })
-
-          } else if (response.status === 'not_authorized') {
-
-          } else {
-            
-          }
-        });
+        fbLoginStatus()
         } else {
           alert('Facebook was unable to load, please check your device and reload.')
           console.log('SDK NOT LOADED')
@@ -62,16 +65,22 @@ $().ready(function(){
 		.click(function(){
 			console.log('Facebook Login')
 			FB.login(function(response){
-
+				if (response.authResponse) {
+					console.log('Welcome!  Fetching your information.... ');
+          fbLoginStatus()
+          FB.api('/me', function(response) {
+          	console.log('Good to see you, ' + response.name + '.');
+          });
+        } else {
+        	console.log('User cancelled login or did not fully authorize.');
+				}
 			},{scope: 'public_profile,email'});
-			location.reload()
-	})
+		})
 	$('#fb-logout-item')
 		.click(function(){
 			FB.logout(function(response) {
-
+				fbLoginStatus()
 			});
-			location.reload()
 		})
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");
