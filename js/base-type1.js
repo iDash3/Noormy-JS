@@ -1,59 +1,74 @@
-$('#fb-logout-item').hide('slow')	
+window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '522565318118931',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.11'
+      });
 
-setTimeout(function(){
-	console.log('FB loading...')
-	FB.getLoginStatus(function(response) {
-	if (response.status === 'connected') {
-    // the user is logged in and has authenticated your
-    // app, and response.authResponse supplies
-    // the user's ID, a valid access token, a signed
-    // request, and the time the access token 
-    // and signed request each expire
-    var uid = response.authResponse.userID;
-    var accessToken = response.authResponse.accessToken;
-	$('#fb-login-item').hide()
-	$('#fb-logout-item').show()
-	$('#logged-out-div')
-		.hide()
-	$('#logged-in-div')
-		.show()
-	var flamePressed = 0;
-	$('.fire-button-general')
-		.click(function(){
-			flamePressed += 1;
-			let flamePower = "brightness("+((flamePressed * 5) + 30)+"%)";
-			console.log(flamePower) 
-			console.log(flamePressed) 
-			$('#fire-button')
-				.hide("slow")
-			$('#fire-button-clicked')
-				.show()
-			$('#fire-button-clicked')
-				.css("filter", flamePower);
-		})
+     if (typeof(FB) != 'undefined' && FB != null ) {
+        console.log('SDK LOADED')
+        console.log('FB loading...')
+        FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+            $('#fb-login-item').hide()
+            $('#fb-logout-item').show()
 
-	} else if (response.status === 'not_authorized') {
-	    // the user is logged in to Facebook, 
-	    // but has not authenticated your app
-	} else {
-	    // the user isn't logged in to Facebook.
-	  }
-	});
-}, 100)
+            $('#logged-out-div')
+              .hide()
+            $('#logged-in-div')
+              .show()
+            var flamePressed = 0;
+            $('.fire-button-general')
+              .click(function(){
+                flamePressed += 1;
+                let flamePower = "brightness("+((flamePressed * 5) + 30)+"%)";
+                console.log(flamePower) 
+                console.log(flamePressed) 
+                $('#fire-button')
+                  .hide("slow")
+                $('#fire-button-clicked')
+                  .show()
+                $('#fire-button-clicked')
+                  .css("filter", flamePower);
+              })
+
+          } else if (response.status === 'not_authorized') {
+
+          } else {
+            
+          }
+        });
+        } else {
+          alert('Facebook was unable to load, please check your device and reload.')
+          console.log('SDK NOT LOADED')
+        }
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
 
 $().ready(function(){
+	$('#fb-logout-item').hide('')	
 	$('#fb-button, #fb-login-item')
 		.click(function(){
-			alert('Login a Facebook')
+			console.log('Facebook Login')
 			FB.login(function(response){
-  			// Handle the response object, like in statusChangeCallback() in our demo
-  			// code.
+
 	},{scope: 'public_profile,email'});
 		})
 	$('#fb-logout-item')
 		.click(function(){
 			FB.logout(function(response) {
-   			// Person is now logged out
+				
 			});
 		})
 	var c = document.getElementById("mainCanvas");
