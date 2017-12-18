@@ -35,7 +35,7 @@ function fbLoginStatus(){
 window.fbAsyncInit = function() {
       FB.init({
         appId            : '522565318118931',
-        autoLogAppEvents : true,
+        status 					 : true,
         xfbml            : true,
         cookie					 : true,
         version          : 'v2.11'

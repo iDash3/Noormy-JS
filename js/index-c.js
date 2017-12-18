@@ -1,5 +1,6 @@
 function fbLoginStatus(){
     FB.getLoginStatus(function(response) {
+    console.log(response.status)
         if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
@@ -18,7 +19,7 @@ function fbLoginStatus(){
 window.fbAsyncInit = function() {
       FB.init({
         appId            : '522565318118931',
-        autoLogAppEvents : true,
+        status           : true,
         xfbml            : true,
         cookie           : true,
         version          : 'v2.11'
