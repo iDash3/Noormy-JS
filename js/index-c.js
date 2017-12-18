@@ -15,10 +15,10 @@ function fbLoginStatus(){
     });
     
 }
-
+var fbAppId = '522565318118931'
 window.fbAsyncInit = function() {
       FB.init({
-        appId            : '522565318118931',
+        appId            : fbAppId,
         status           : true,
         xfbml            : true,
         cookie           : true,
@@ -64,7 +64,12 @@ $().ready(function(){
     .click(function(){
       console.log('Facebook Logout')
       FB.logout(function(response) {
-    });
+        deleteCookie("fblo_" + fbAppId); // fblo_yourFBAppId. example: fblo_444499089231295
+      });
+
+  function deleteCookie(name) {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  }
   })
   $('.flame-b')
     .click(function(){
