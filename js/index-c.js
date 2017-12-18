@@ -50,7 +50,6 @@ $().ready(function(){
       FB.login(function(response){
         if (response.authResponse) {
           console.log('Welcome!  Fetching your information.... ');
-          fbLoginStatus()
           FB.api('/me', function(response) {
             console.log('Good to see you, ' + response.name + '.');
           });
@@ -64,7 +63,6 @@ $().ready(function(){
     .click(function(){
       console.log('Facebook Logout')
       FB.logout(function(response) {
-            fbLoginStatus()
     });
   })
   $('.flame-b')
