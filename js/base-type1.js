@@ -63,13 +63,15 @@ $().ready(function(){
 			console.log('Facebook Login')
 			FB.login(function(response){
 
-		},{scope: 'public_profile,email'});
+			},{scope: 'public_profile,email'});
+			location.reload()
 	})
 	$('#fb-logout-item')
 		.click(function(){
 			FB.logout(function(response) {
 
 			});
+			location.reload()
 		})
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");

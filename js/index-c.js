@@ -42,16 +42,16 @@ $().ready(function(){
     .click(function(){
       console.log('Facebook Login')
       FB.login(function(response){
-        location.reload();
     },{scope: 'public_profile,email'});
+      location.reload();
   })
     
   $('#fb-logout-item')
     .click(function(){
       console.log('Facebook Logout')
       FB.logout(function(response) {
-        location.reload();
     });
+      location.reload();
   })
   $('.flame-b')
     .click(function(){
