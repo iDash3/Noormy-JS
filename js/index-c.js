@@ -20,6 +20,7 @@ window.fbAsyncInit = function() {
         appId            : '522565318118931',
         autoLogAppEvents : true,
         xfbml            : true,
+        cookie           : true,
         version          : 'v2.11'
       });
     
