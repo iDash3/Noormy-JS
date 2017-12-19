@@ -8,8 +8,10 @@ function fbLoginStatus(){
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
             FB.api('/me', function(response) {
-              let username = ''
-              if (response.name != 'undefined'){username=response.name}              }
+              let username = '';
+              if (response.name != 'undefined'){
+                username = response.name;
+              }
               $('#sht-div').html('Hey' + username + ', you are now ready to go. ;)')
             });
             $('#fb-login-item').hide()
