@@ -12,7 +12,7 @@ function fbLoginStatus(){
 			$('.fire-button-general')
 			  .click(function(){
 			    flamePressed += 1;
-			    let flamePower = "brightness("+((flamePressed * 5) + 30)+"%)";
+			    let flamePower = "brightness("+((flamePressed * 5) + 40)+"%)";
 			    console.log(flamePower) 
 			    console.log(flamePressed) 
 			    $('#fire-button')
@@ -97,7 +97,7 @@ $().ready(function(){
 	setTimeout(function(){
 		addTitle(ctx, 'Zac Efron', 'title');
 		addTitle(ctx, 'Amante de animales', 'subtitle');
-		addMainImage(ctx, "static/ex-img/rec-ex.png");
+		addMainImage(ctx, "static/imgs/zac-animal.jpg");
 		var actualCanvas = convertCanvasToImage(c);
 	}, 50)
 
@@ -130,7 +130,7 @@ $().ready(function(){
 		let img = new Image()
 		img.src = imgUrl;
 		img.addEventListener("load", function(){
-			ctx.drawImage(img,500,120,250,250)
+			ctx.drawImage(img,500,110,250,300)
 		}, false)
 
 	}

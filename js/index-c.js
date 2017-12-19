@@ -10,16 +10,18 @@ function fbLoginStatus(){
             FB.api('/me', function(response) {
               let username = '';
               if (response.name != 'undefined'){
-                username = response.name;
+                username = ' ' + response.name + ' ';
               }
-              $('#sht-div').html('Hey' + username + ', you are now ready to go. ;)')
+              $('#sht-div').html('Hey' + username + ', The Nigerian Prince send his regards! :)')
             });
             $('#fb-login-item').hide()
             $('#fb-logout-item').show()
         } else if (response.status === 'not_authorized') {
             $('#sht-div').html('Authorize our app in order to use it. :)')
         } else {
-            $('#sht-div').html('<span>Not connected to Facebook. <a class="none-button" id="fb-blue"><b>Click here</b> to connect.</a></span>')
+          let connectSpan = $('<span>Not connected to Facebook.\ 
+            <a id="fb-blue"><b>Click here</b> to connect.</a></span>')
+            $('#sht-div').html(connectSpan)
         }
     });
 }
