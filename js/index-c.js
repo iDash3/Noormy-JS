@@ -8,7 +8,9 @@ function fbLoginStatus(){
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
             FB.api('/me', function(response) {
-              $('#sht-div').html('Hey' + response.name + ', you are now ready to go. ;)')
+              let username = ''
+              if (response.name != 'undefined'){username=response.name}              }
+              $('#sht-div').html('Hey' + username + ', you are now ready to go. ;)')
             });
             $('#fb-login-item').hide()
             $('#fb-logout-item').show()
@@ -57,10 +59,10 @@ $().ready(function(){
       FB.login(function(response){
         if (response.authResponse) {
           console.log('Welcome!  Fetching your information.... ');
+          fbLoginStatus()
           FB.api('/me', function(response) {
             console.log('Good to see you, ' + response.name + '.');
           });
-          fbLoginStatus()
         } else {
           console.log('User cancelled login or did not fully authorize.');
         }
@@ -72,8 +74,8 @@ $().ready(function(){
       console.log('Facebook Logout')
       FB.logout(function(response) {
         deleteCookie("fblo_" + fbAppId); // fblo_yourFBAppId. example: fblo_444499089231295
+        fbLoginStatus();
       });
-      fbLoginStatus();
   })
   
   $('.flame-b')
