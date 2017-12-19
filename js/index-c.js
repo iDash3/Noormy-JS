@@ -19,7 +19,7 @@ function fbLoginStatus(){
         } else if (response.status === 'not_authorized') {
             $('#sht-div').html('Authorize our app in order to use it. :)')
         } else {
-          let connectSpan = $('<span>Not connected to Facebook.\ 
+          let connectSpan = $('<span>Not connected to Facebook.\
             <a id="fb-blue"><b>Click here</b> to connect.</a></span>')
             $('#sht-div').html(connectSpan)
         }
