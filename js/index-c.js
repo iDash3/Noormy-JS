@@ -1,3 +1,5 @@
+var fbAppId = '522565318118931'
+
 function fbLoginStatus(){
     FB.getLoginStatus(function(response) {
     console.log(response.status)
@@ -5,7 +7,9 @@ function fbLoginStatus(){
         if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
-            $('#sht-div').html('Hey' + response.name + ', you are now ready to go. ;)')
+            FB.api('/me', function(response) {
+              $('#sht-div').html('Hey' + response.name + ', you are now ready to go. ;)')
+            });
             $('#fb-login-item').hide()
             $('#fb-logout-item').show()
         } else if (response.status === 'not_authorized') {
@@ -14,9 +18,10 @@ function fbLoginStatus(){
             $('#sht-div').html('<span>Not connected to Facebook. <a class="none-button" id="fb-blue"><b>Click here</b> to connect.</a></span>')
         }
     });
-    
 }
-var fbAppId = '522565318118931'
+function deleteCookie(name) {
+  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
 window.fbAsyncInit = function() {
       FB.init({
         appId            : fbAppId,
@@ -70,9 +75,7 @@ $().ready(function(){
       });
       fbLoginStatus();
   })
-  function deleteCookie(name) {
-    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  }
+  
   $('.flame-b')
     .click(function(){
       console.log('Random link')
