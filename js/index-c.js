@@ -5,13 +5,13 @@ function fbLoginStatus(){
         if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
-            $('#sht-div').html('Ooh, baby. You are ready to go')
+            $('#sht-div').html('Hey' + response.name + ', you are now ready to go. ;)')
             $('#fb-login-item').hide()
             $('#fb-logout-item').show()
         } else if (response.status === 'not_authorized') {
             $('#sht-div').html('Authorize our app in order to use it. :)')
         } else {
-            $('#sht-div').html('<span>Not connected to Facebook. <b id="fb-blue">Click here</b> to connect.</span>');
+            $('#sht-div').html('<span>Not connected to Facebook. <a class="none-button" id="fb-blue"><b>Click here</b> to connect.</a></span>')
         }
     });
     
@@ -55,25 +55,26 @@ $().ready(function(){
           FB.api('/me', function(response) {
             console.log('Good to see you, ' + response.name + '.');
           });
+          fbLoginStatus()
         } else {
           console.log('User cancelled login or did not fully authorize.');
         }
       },{scope: 'public_profile,email'});
   })
     
-  $('#fb-logout-item, .flame-b')
+  $('#fb-logout-item')
     .click(function(){
       console.log('Facebook Logout')
       FB.logout(function(response) {
         deleteCookie("fblo_" + fbAppId); // fblo_yourFBAppId. example: fblo_444499089231295
       });
-
+      fbLoginStatus();
+  })
   function deleteCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
-  })
   $('.flame-b')
     .click(function(){
-      console.log('Fckin click')
+      console.log('Random link')
   })
 })

@@ -5,11 +5,9 @@ function fbLoginStatus(){
 			var accessToken = response.authResponse.accessToken;
 			$('#fb-login-item').hide()
 			$('#fb-logout-item').show()
+			$('#logged-out-div').hide()
+			$('#logged-in-div').show()
 
-			$('#logged-out-div')
-			  .hide()
-			$('#logged-in-div')
-			  .show()
 			var flamePressed = 0;
 			$('.fire-button-general')
 			  .click(function(){
@@ -25,12 +23,18 @@ function fbLoginStatus(){
 			      .css("filter", flamePower);
 			  })
 		} else if (response.status === 'not_authorized') {
-
+			sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
 		} else {
-
 		}
     });
 }
+function sendAlertNotification(strongText, normalText, targetId, type){
+	if(type==null){type = 'info'}
+	let newAlert = $('<div class="alert alert-'+ type +' alert-dismissable">\
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
+		<strong>'+ strongText +'</strong>'+ normalText +'</div>')
+	$('#' + targetId).append(newAlert);
+}         
 
 window.fbAsyncInit = function() {
       FB.init({
@@ -61,7 +65,7 @@ window.fbAsyncInit = function() {
 
 
 $().ready(function(){
-	$('#fb-logout-item').hide('')	
+	$('#fb-logout-item').hide()	
 	$('#fb-button, #fb-login-item')
 		.click(function(){
 			console.log('Facebook Login')
@@ -71,6 +75,7 @@ $().ready(function(){
           FB.api('/me', function(response) {
           	console.log('Good to see you, ' + response.name + '.');
           });
+          fbLoginStatus();
         } else {
         	console.log('User cancelled login or did not fully authorize.');
 				}
@@ -79,8 +84,13 @@ $().ready(function(){
 	$('#fb-logout-item')
 		.click(function(){
 			FB.logout(function(response) {
+				deleteCookie("fblo_" + fbAppId);
 			});
+			fbLoginStatus();
 		})
+	function deleteCookie(name) {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  }
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");
 	background(ctx, "#FFEB3B","#8BC34A");
