@@ -31,21 +31,22 @@ function fbLoginStatus(){
 }
 
 function getFBData () {
-	FB.api('/me', function(response) {
+	FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture'}, function(response) {
 		fbinfo[0] = response.id;
-		fbinfo[1] = response.first_name;
-		fbinfo[2] = response.last_name;
-		fbinfo[3] = response.email;
- 		profilePic = "http://graph.facebook.com/" + response.id + "/picture?type=normal"
+		fbinfo[1] = response.name;
+		fbinfo[2] = response.first_name;
+		fbinfo[3] = response.last_name;
+		fbinfo[4] = response.email;
+ 		profilePic = response.picture.data.url;
 	});
 }
 
 function sendAlertNotification(strongText, normalText, targetId, type){
-if(type==null){type = 'info'}
-let newAlert = $('<div class="alert alert-'+ type +' alert-dismissable">\
-<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
-<strong>'+ strongText +'</strong>'+ normalText +'</div>')
-$('#' + targetId).append(newAlert);
+	if(type==null){type = 'info'}
+	let newAlert = $('<div class="alert alert-'+ type +' alert-dismissable">\
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
+	<strong>'+ strongText +'</strong>'+ normalText +'</div>')
+	$('#' + targetId).append(newAlert);
 }         
 
 window.fbAsyncInit = function() {
