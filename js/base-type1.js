@@ -24,6 +24,15 @@ function fbLoginStatus(){
 		    $('#fire-button-clicked')
 		      .css("filter", flamePower);
 		  })
+	  FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture'}, function(response) {
+			fbinfo[0] = response.id;
+			fbinfo[1] = response.name;
+			fbinfo[2] = response.first_name;
+			fbinfo[3] = response.last_name;
+			fbinfo[4] = response.email;
+	 		// profilePic = response.picture.data.url;
+	 		console.log(response)
+		});
 	} else if (response.status === 'not_authorized') {
 		sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
 	} else {}
@@ -49,21 +58,9 @@ window.fbAsyncInit = function() {
 
 
 	  if (typeof(FB) != 'undefined' && FB != null ) {
-				function getFBData () {
-					FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture'}, function(response) {
-						fbinfo[0] = response.id;
-						fbinfo[1] = response.name;
-						fbinfo[2] = response.first_name;
-						fbinfo[3] = response.last_name;
-						fbinfo[4] = response.email;
-				 		// profilePic = response.picture.data.url;
-				 		console.log(response)
-					});
-				}
 	      console.log('SDK LOADED')
 	      console.log('FB loading...')
 	      fbLoginStatus()
-	      getFBData()
 	  } else {
 	      alert('Facebook was unable to load, please check your device and reload.')
 	      console.log('SDK NOT LOADED')
