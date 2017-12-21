@@ -87,7 +87,7 @@ $().ready(function(){
 				// method: 'share',
 				method: 'feed',
 				name: 'Which Zac Efron are you? - B',
-				link: 'https://idash3.github.io/Noormy-JS/base-type1.html',
+				link: 'https://idash3.github.io/Noormy-JS/base-1.html',
 				picture: 'https://imgur.com/F1rOl6R',
 				caption: 'Top 3 reasons why this should work',
 				description: "Nooormy. Come join us. We have free tacos. Wait, no, we do not.",
