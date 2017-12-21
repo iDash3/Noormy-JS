@@ -1,68 +1,67 @@
+var fbAppId = '522565318118931'
+
 function fbLoginStatus(){
 	FB.getLoginStatus(function(response) {
-		if (response.status === 'connected') {
-			var uid = response.authResponse.userID;
-			var accessToken = response.authResponse.accessToken;
-			$('#fb-login-item').hide()
-			$('#fb-logout-item').show()
-			$('#logged-out-div').hide()
-			$('#logged-in-div').show()
+	if (response.status === 'connected') {
+		var uid = response.authResponse.userID;
+		var accessToken = response.authResponse.accessToken;
+		$('#fb-login-item').hide()
+		$('#fb-logout-item').show()
+		$('#logged-out-div').hide()
+		$('#logged-in-div').show()
 
-			var flamePressed = 0;
-			$('.fire-button-general')
-			  .click(function(){
-			    flamePressed += 1;
-			    let flamePower = "brightness("+((flamePressed * 5) + 40)+"%)";
-			    console.log(flamePower) 
-			    console.log(flamePressed) 
-			    $('#fire-button')
-			      .hide("slow")
-			    $('#fire-button-clicked')
-			      .show()
-			    $('#fire-button-clicked')
-			      .css("filter", flamePower);
-			  })
-		} else if (response.status === 'not_authorized') {
-			sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
-		} else {
-		}
-    });
+		var flamePressed = 0;
+		$('.fire-button-general')
+	  	.click(function(){
+		    flamePressed += 1;
+		    let flamePower = "brightness("+((flamePressed * 5) + 40)+"%)";
+		    console.log(flamePower) 
+		    console.log(flamePressed) 
+		    $('#fire-button').hide("slow")
+		    $('#fire-button-clicked').show()
+		    $('#fire-button-clicked')
+		      .css("filter", flamePower);
+		  })
+	} else if (response.status === 'not_authorized') {
+		sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
+	} else {}
+	});
 }
+
 function sendAlertNotification(strongText, normalText, targetId, type){
-	if(type==null){type = 'info'}
-	let newAlert = $('<div class="alert alert-'+ type +' alert-dismissable">\
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
-		<strong>'+ strongText +'</strong>'+ normalText +'</div>')
-	$('#' + targetId).append(newAlert);
+if(type==null){type = 'info'}
+let newAlert = $('<div class="alert alert-'+ type +' alert-dismissable">\
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
+<strong>'+ strongText +'</strong>'+ normalText +'</div>')
+$('#' + targetId).append(newAlert);
 }         
 
 window.fbAsyncInit = function() {
-      FB.init({
-        appId            : '522565318118931',
-        status 					 : true,
-        xfbml            : true,
-        cookie					 : true,
-        version          : 'v2.11'
-      });
+	FB.init({
+	  appId            : fbAppId,
+	  status           : true,
+	  xfbml            : true,
+	  cookie           : true,
+	  version          : 'v2.11'
+	});
 
-     if (typeof(FB) != 'undefined' && FB != null ) {
-        console.log('SDK LOADED')
-        console.log('FB loading...')
-        fbLoginStatus()
-        } else {
-          alert('Facebook was unable to load, please check your device and reload.')
-          console.log('SDK NOT LOADED')
-        }
-    };
+	  if (typeof(FB) != 'undefined' && FB != null ) {
+	      console.log('SDK LOADED')
+	      console.log('FB loading...')
+	      fbLoginStatus()
+	  } else {
+	      alert('Facebook was unable to load, please check your device and reload.')
+	      console.log('SDK NOT LOADED')
+	  }
+	};
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-
+	(function(d, s, id){
+	 var js, fjs = d.getElementsByTagName(s)[0];
+	 if (d.getElementById(id)) {return;}
+	 js = d.createElement(s); js.id = id;
+	 js.src = "https://connect.facebook.net/en_US/sdk.js";
+	 fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 
 $().ready(function(){
 	$('#fb-logout-item').hide()	
@@ -98,6 +97,7 @@ $().ready(function(){
 	function deleteCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
+
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");
 	background(ctx, "#FFEB3B","#8BC34A");
@@ -112,6 +112,7 @@ $().ready(function(){
 
 	function getUserPhotos(profile){
 		if(profile==true){
+			setTimeout(function(){console.log("WTF")
 			FB.api('me/albums', function(response){
 				for(album in response.data){
 					if(response.data[album].name == 'Profile Pictures'){
@@ -121,9 +122,7 @@ $().ready(function(){
 					}
 				}
 			});
-		}
-		else{
-			return 'static/'
+		},70);
 		}
 	}
 
