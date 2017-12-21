@@ -1,7 +1,6 @@
 var fbAppId = '522565318118931'
 var fbinfo = new Array();
-var profilePic = ''
-
+var profilePicUrl
 function fbLoginStatus(){
 	FB.getLoginStatus(function(response) {
 	if (response.status === 'connected') {
@@ -30,7 +29,7 @@ function fbLoginStatus(){
 			fbinfo[2] = response.first_name;
 			fbinfo[3] = response.last_name;
 			fbinfo[4] = response.email;
-	 		profilePic = response.picture.data.url;
+	 		var profilePicUrl = response.picture.data.url;
 	 		console.log(response)
 		});
 	} else if (response.status === 'not_authorized') {
@@ -112,12 +111,16 @@ $().ready(function(){
 	background(ctx, "#FFEB3B","#8BC34A");
 
 	setTimeout(function(){
+		loadTest()
+	}, 100)
+
+	function loadTest(){
 		addTitle(ctx, 'Zac Efron', 'title');
 		addTitle(ctx, 'Amante de animales', 'subtitle');
-		addMainImage(ctx, profilePic);
+		addMainImage(ctx, profilePicUrl);
 		addResultImage(ctx, "static/imgs/zac-animal.jpg");
 		var actualCanvas = convertCanvasToImage(c);
-	}, 60)
+	}
 
 	function background(ctx, color1, color2){
 		// Create gradient
