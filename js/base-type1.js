@@ -24,15 +24,15 @@ function fbLoginStatus(){
 		    $('#fire-button-clicked')
 		      .css("filter", flamePower);
 		  })
-	  FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture'}, function(response) {
-			fbinfo[0] = response.id;
-			fbinfo[1] = response.name;
-			fbinfo[2] = response.first_name;
-			fbinfo[3] = response.last_name;
-			fbinfo[4] = response.email;
-	 		// profilePic = response.picture.data.url;
-	 		console.log(response)
-		});
+	 //  FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture'}, function(response) {
+		// 	fbinfo[0] = response.id;
+		// 	fbinfo[1] = response.name;
+		// 	fbinfo[2] = response.first_name;
+		// 	fbinfo[3] = response.last_name;
+		// 	fbinfo[4] = response.email;
+	 // 		profilePic = response.picture.data.url;
+	 // 		console.log(response)
+		// });
 	} else if (response.status === 'not_authorized') {
 		sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
 	} else {}
