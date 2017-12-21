@@ -85,6 +85,13 @@ $().ready(function(){
 		.click(function(){
 			FB.ui({
 				method: 'share',
+				// method: 'feed',
+				name: 'Which Zac Efron are you?',
+				link: 'https://idash3.github.io/Noormy-JS/base-type1.html',
+				picture: 'static/img/zac-animal.jpg',
+				caption: 'Top 3 reasons why this should work',
+				description: "Nooormy. Come join us. We have free tacos. Wait, no, we do not.",
+				message: "What the hell is supposed to be here?"
 			}, function(response){})
 		})
 	$('#fb-logout-item')
