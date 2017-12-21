@@ -81,6 +81,13 @@ $().ready(function(){
 				}
 			},{scope: 'public_profile,email'});
 		})
+	$('#fb-share')
+		.click(function(){
+			FB.ui({
+				method: 'share',
+				href: 'https://idash3.github.io/Noormy-JS/index.html',
+			}, function(response){})
+		})
 	$('#fb-logout-item')
 		.click(function(){
 			FB.logout(function(response) {

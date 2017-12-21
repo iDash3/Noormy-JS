@@ -140,14 +140,14 @@ body{
 	color: #212121;
 }
 #fb-b:hover{background-color: #3b5999}
-#fb-login{
+#fb-share{
 	color: white;
 	font-size: 40px;
 	font-weight: 600;
-	padding: 15px 95px;
+	padding: 15px 85px;
 	border-radius: 50px;
 	background-color: #3b5999;
 }
-#fb-login:hover{background-color: #0D47A1}
+#fb-share:hover{background-color: #0D47A1}
 #fire-button:hover{filter:opacity(80%);}
 .fire-button-general:hover{background-color: #EEEEEE}
