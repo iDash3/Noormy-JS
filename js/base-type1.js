@@ -30,18 +30,6 @@ function fbLoginStatus(){
 	});
 }
 
-function getFBData () {
-	FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture'}, function(response) {
-		fbinfo[0] = response.id;
-		fbinfo[1] = response.name;
-		fbinfo[2] = response.first_name;
-		fbinfo[3] = response.last_name;
-		fbinfo[4] = response.email;
- 		// profilePic = response.picture.data.url;
- 		console.log(response)
-	});
-}
-
 function sendAlertNotification(strongText, normalText, targetId, type){
 	if(type==null){type = 'info'}
 	let newAlert = $('<div class="alert alert-'+ type +' alert-dismissable">\
@@ -59,7 +47,19 @@ window.fbAsyncInit = function() {
 	  version          : 'v2.11'
 	});
 
+
 	  if (typeof(FB) != 'undefined' && FB != null ) {
+				function getFBData () {
+					FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture'}, function(response) {
+						fbinfo[0] = response.id;
+						fbinfo[1] = response.name;
+						fbinfo[2] = response.first_name;
+						fbinfo[3] = response.last_name;
+						fbinfo[4] = response.email;
+				 		// profilePic = response.picture.data.url;
+				 		console.log(response)
+					});
+				}
 	      console.log('SDK LOADED')
 	      console.log('FB loading...')
 	      fbLoginStatus()
