@@ -85,8 +85,6 @@ $().ready(function(){
 		.click(function(){
 			FB.ui({
 				method: 'share',
-				// method: 'feed',
-				name: 'Which Zac Efron are you? - B',
 				href: 'https://idash3.github.io/Noormy-JS/base-1.html',
 			}, function(response){})
 		})
@@ -103,12 +101,31 @@ $().ready(function(){
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");
 	background(ctx, "#FFEB3B","#8BC34A");
+
 	setTimeout(function(){
 		addTitle(ctx, 'Zac Efron', 'title');
 		addTitle(ctx, 'Amante de animales', 'subtitle');
-		addMainImage(ctx, "static/imgs/zac-animal.jpg");
+		addMainImage(ctx, getUserPhotos(true));
+		addResultImage(ctx, "static/imgs/zac-animal.jpg");
 		var actualCanvas = convertCanvasToImage(c);
 	}, 50)
+
+	function getUserPhotos(profile){
+		if(profile==true){
+			FB.api('me/albums', function(response){
+				for(album in response.data){
+					if(response.data[album].name == 'Profile Pictures'){
+						FB.api(response.data[album].id + '/photos', function(response){
+							return image = response.data[0].images[0].source
+						});
+					}
+				}
+			});
+		}
+		else{
+			return 'static/'
+		}
+	}
 
 	function background(ctx, color1, color2){
 		// Create gradient
@@ -139,9 +156,15 @@ $().ready(function(){
 		let img = new Image()
 		img.src = imgUrl;
 		img.addEventListener("load", function(){
+			ctx.drawImage(img,100,150,200,200)
+		}, false)
+	}
+	function addResultImage(ctx, imgUrl){
+		let img = new Image()
+		img.src = imgUrl;
+		img.addEventListener("load", function(){
 			ctx.drawImage(img,500,110,250,300)
 		}, false)
-
 	}
 	function convertCanvasToImage(canvas){
 		let img = new Image()
