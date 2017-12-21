@@ -37,7 +37,7 @@ function getFBData () {
 		fbinfo[2] = response.first_name;
 		fbinfo[3] = response.last_name;
 		fbinfo[4] = response.email;
- 		profilePic = response.picture.data.url;
+ 		// profilePic = response.picture.data.url;
  		console.log(response)
 	});
 }
