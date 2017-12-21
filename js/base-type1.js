@@ -86,7 +86,7 @@ $().ready(function(){
 			FB.ui({
 				// method: 'share',
 				method: 'feed',
-				name: 'Which Zac Efron are you?',
+				name: 'Which Zac Efron are you? - B',
 				link: 'https://idash3.github.io/Noormy-JS/base-type1.html',
 				picture: 'https://imgur.com/F1rOl6R',
 				caption: 'Top 3 reasons why this should work',
