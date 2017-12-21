@@ -87,7 +87,7 @@ $().ready(function(){
 				method: 'share',
 				// method: 'feed',
 				name: 'Which Zac Efron are you? - B',
-				link: 'https://idash3.github.io/Noormy-JS/base-1.html',
+				href: 'https://idash3.github.io/Noormy-JS/base-1.html',
 			}, function(response){})
 		})
 	$('#fb-logout-item')
