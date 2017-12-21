@@ -1,4 +1,6 @@
 var fbAppId = '522565318118931'
+var fbinfo = new Array();
+var profilePic = ''
 
 function fbLoginStatus(){
 	FB.getLoginStatus(function(response) {
@@ -28,6 +30,16 @@ function fbLoginStatus(){
 	});
 }
 
+function getFBData () {
+	FB.api('/me', function(response) {
+		fbinfo[0] = response.id;
+		fbinfo[1] = response.first_name;
+		fbinfo[2] = response.last_name;
+		fbinfo[3] = response.email;
+ 		profilePic = "http://graph.facebook.com/" + response.id + "/picture?type=normal"
+	});
+}
+
 function sendAlertNotification(strongText, normalText, targetId, type){
 if(type==null){type = 'info'}
 let newAlert = $('<div class="alert alert-'+ type +' alert-dismissable">\
@@ -49,6 +61,7 @@ window.fbAsyncInit = function() {
 	      console.log('SDK LOADED')
 	      console.log('FB loading...')
 	      fbLoginStatus()
+	      getFBData()
 	  } else {
 	      alert('Facebook was unable to load, please check your device and reload.')
 	      console.log('SDK NOT LOADED')
@@ -71,9 +84,6 @@ $().ready(function(){
 			FB.login(function(response){
 				if (response.authResponse) {
 					console.log('Welcome!  Fetching your information.... ');
-          FB.api('/me', function(response) {
-          	console.log('Good to see you, ' + response.name + '.');
-          });
           fbLoginStatus();
         } else {
         	console.log('User cancelled login or did not fully authorize.');
@@ -105,26 +115,10 @@ $().ready(function(){
 	setTimeout(function(){
 		addTitle(ctx, 'Zac Efron', 'title');
 		addTitle(ctx, 'Amante de animales', 'subtitle');
-		addMainImage(ctx, getUserPhotos(true));
+		addMainImage(ctx, profilePic);
 		addResultImage(ctx, "static/imgs/zac-animal.jpg");
 		var actualCanvas = convertCanvasToImage(c);
-	}, 50)
-
-	function getUserPhotos(profile){
-		if(profile==true){
-			setTimeout(function(){console.log("WTF")
-			FB.api('me/albums', function(response){
-				for(album in response.data){
-					if(response.data[album].name == 'Profile Pictures'){
-						FB.api(response.data[album].id + '/photos', function(response){
-							return image = response.data[0].images[0].source
-						});
-					}
-				}
-			});
-		},70);
-		}
-	}
+	}, 60)
 
 	function background(ctx, color1, color2){
 		// Create gradient
