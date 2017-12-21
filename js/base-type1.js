@@ -114,7 +114,7 @@ $().ready(function(){
 	setTimeout(function(){
 		addTitle(ctx, 'Zac Efron', 'title');
 		addTitle(ctx, 'Amante de animales', 'subtitle');
-		addMainImage(ctx, 'static/ex-img/rec-ex.png');
+		addMainImage(ctx, profilePic);
 		addResultImage(ctx, "static/imgs/zac-animal.jpg");
 		var actualCanvas = convertCanvasToImage(c);
 	}, 60)
