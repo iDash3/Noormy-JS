@@ -84,8 +84,8 @@ $().ready(function(){
 	$('#fb-share')
 		.click(function(){
 			FB.ui({
-				method: 'share',
-				// method: 'feed',
+				// method: 'share',
+				method: 'feed',
 				name: 'Which Zac Efron are you?',
 				link: 'https://idash3.github.io/Noormy-JS/base-type1.html',
 				picture: 'https://imgur.com/F1rOl6R',
