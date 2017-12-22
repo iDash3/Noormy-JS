@@ -115,6 +115,7 @@ function addTitle(ctx, text, type){
 function addMainImage(ctx, imgUrl){
 	let img = new Image()
 	img.src = imgUrl;
+	img.crossOrigin = "Anonymous";
 	img.addEventListener("load", function(){
 		ctx.drawImage(img,80,130,260,260)
 	}, false)
