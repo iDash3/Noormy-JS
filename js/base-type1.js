@@ -17,7 +17,7 @@ function fbLoginStatus(){
 		$('.fire-button-general')
 	  	.click(function(){
 		    flamePressed += 1;
-		    let flamePower = "brightness("+((flamePressed * 5) + 40)+"%)";
+		    let flamePower = "brightness("+((flamePressed * 8) + 40)+"%)";
 		    console.log(flamePower) 
 		    console.log(flamePressed) 
 		    $('#fire-button').hide("slow")
@@ -37,10 +37,10 @@ function fbLoginStatus(){
 		loadTest()
 	} else if (response.status === 'not_authorized') {
 		sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
-		profilePicUrl = '/static/ex-img/rec-ex.png'
+		profilePicUrl = 'static/ex-img/rec-ex.png'
 		loadTest()
 	} else {
-		profilePicUrl = '/static/ex-img/rec-ex.png'
+		profilePicUrl = 'static/ex-img/rec-ex.png'
 		loadTest()
 	}
 	});
