@@ -79,6 +79,59 @@ window.fbAsyncInit = function() {
 	 fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 
+function loadTest(){
+	addTitle(ctx, 'Zac Efron', 'title');
+	addTitle(ctx, 'Amante de animales', 'subtitle');
+	addMainImage(ctx, profilePicUrl);
+	addResultImage(ctx, "static/imgs/zac-animal.jpg");
+	var actualCanvas = convertCanvasToImage(c);
+}
+
+function background(ctx, color1, color2){
+	// Create gradient
+	// var grd=ctx.createLinearGradient(0,0,200,0); Creates a linear gradient.
+	// var grd=ctx.createLinearGradient(0,0,0,200); Creates a up do down gradient.
+	var grd=ctx.createLinearGradient(0,0,800,200);
+	grd.addColorStop(0,color1);
+	grd.addColorStop(1,color2);
+
+	// Fill with gradient
+	ctx.fillStyle=grd;
+	ctx.fillRect(0,0,800,420);	
+}
+function addTitle(ctx, text, type){
+	// Add a function so that the center of the text goes to the center of the canvas.
+	if (type == 'title'){	
+		ctx.fillStyle='white';
+		ctx.font='800 30pt Roboto'
+		ctx.fillText(text,340,55)
+	}
+	if (type == 'subtitle') {
+		ctx.fillStyle='#2196F3';
+		ctx.font='500 25pt Roboto'
+		ctx.fillText(text,300,100)
+	}
+}
+function addMainImage(ctx, imgUrl){
+	let img = new Image()
+	img.src = imgUrl;
+	img.addEventListener("load", function(){
+		ctx.drawImage(img,80,130,260,260)
+	}, false)
+}
+function addResultImage(ctx, imgUrl){
+	let img = new Image()
+	img.src = imgUrl;
+	img.addEventListener("load", function(){
+		ctx.drawImage(img,500,110,250,300)
+	}, false)
+}
+function convertCanvasToImage(canvas){
+	let img = new Image()
+	img.src=canvas.toDataURL("image/png")
+	return img
+}
+
 $().ready(function(){
 	$('#fb-logout-item').hide()	
 	$('#fb-button, #fb-login-item')
@@ -114,57 +167,4 @@ $().ready(function(){
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");
 	background(ctx, "#FFEB3B","#8BC34A");
-
-	function loadTest(){
-		addTitle(ctx, 'Zac Efron', 'title');
-		addTitle(ctx, 'Amante de animales', 'subtitle');
-		addMainImage(ctx, profilePicUrl);
-		addResultImage(ctx, "static/imgs/zac-animal.jpg");
-		var actualCanvas = convertCanvasToImage(c);
-	}
-
-	function background(ctx, color1, color2){
-		// Create gradient
-		// var grd=ctx.createLinearGradient(0,0,200,0); Creates a linear gradient.
-		// var grd=ctx.createLinearGradient(0,0,0,200); Creates a up do down gradient.
-		var grd=ctx.createLinearGradient(0,0,800,200);
-		grd.addColorStop(0,color1);
-		grd.addColorStop(1,color2);
-
-		// Fill with gradient
-		ctx.fillStyle=grd;
-		ctx.fillRect(0,0,800,420);	
-	}
-	function addTitle(ctx, text, type){
-		// Add a function so that the center of the text goes to the center of the canvas.
-		if (type == 'title'){	
-			ctx.fillStyle='white';
-			ctx.font='800 30pt Roboto'
-			ctx.fillText(text,340,55)
-		}
-		if (type == 'subtitle') {
-			ctx.fillStyle='#2196F3';
-			ctx.font='500 25pt Roboto'
-			ctx.fillText(text,300,100)
-		}
-	}
-	function addMainImage(ctx, imgUrl){
-		let img = new Image()
-		img.src = imgUrl;
-		img.addEventListener("load", function(){
-			ctx.drawImage(img,80,130,260,260)
-		}, false)
-	}
-	function addResultImage(ctx, imgUrl){
-		let img = new Image()
-		img.src = imgUrl;
-		img.addEventListener("load", function(){
-			ctx.drawImage(img,500,110,250,300)
-		}, false)
-	}
-	function convertCanvasToImage(canvas){
-		let img = new Image()
-		img.src=canvas.toDataURL("image/png")
-		return img
-	}
 })
