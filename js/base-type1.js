@@ -1,4 +1,4 @@
-var fbAppId = '522565318118931'
+cosnt fbAppId = '522565318118931'
 var fbinfo = new Array();
 var profilePicUrl
 var mainCanvas = document.getElementById("mainCanvas");
@@ -31,17 +31,14 @@ function fbLoginStatus(){
 			fbinfo[2] = response.first_name;
 			fbinfo[3] = response.last_name;
 			fbinfo[4] = response.email;
-	 		profilePicUrl = response.picture.data.url;
-	 		console.log(response)
+			profilePicUrl = response.picture.data.url
+			loadTest(response.picture.data.url)
 		});
-		loadTest()
 	} else if (response.status === 'not_authorized') {
 		sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
-		profilePicUrl = 'static/ex-img/rec-ex.png'
-		loadTest()
+		loadTest('static/ex-img/rec-ex.png')
 	} else {
-		profilePicUrl = 'static/ex-img/rec-ex.png'
-		loadTest()
+		loadTest('static/ex-img/rec-ex.png')
 	}
 	});
 }
@@ -84,10 +81,10 @@ window.fbAsyncInit = function() {
 	 fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 
-function loadTest(){
+function loadTest(displayPictureUrl){
 	addTitle(ctx, 'Zac Efron', 'title');
 	addTitle(ctx, 'Amante de animales', 'subtitle');
-	addMainImage(ctx, profilePicUrl);
+	addMainImage(ctx, displayPictureUrl);
 	addResultImage(ctx, "static/imgs/zac-animal.jpg");
 	var actualCanvas = convertCanvasToImage(mainCanvas);
 }
