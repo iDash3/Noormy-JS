@@ -10,7 +10,6 @@ function fbLoginStatus(){
 		$('#fb-logout-item').show()
 		$('#logged-out-div').hide()
 		$('#logged-in-div').show()
-
 		var flamePressed = 0;
 		$('.fire-button-general')
 	  	.click(function(){
@@ -29,12 +28,18 @@ function fbLoginStatus(){
 			fbinfo[2] = response.first_name;
 			fbinfo[3] = response.last_name;
 			fbinfo[4] = response.email;
-	 		var profilePicUrl = response.picture.data.url;
+	 		profilePicUrl = response.picture.data.url;
 	 		console.log(response)
 		});
+		loadTest()
 	} else if (response.status === 'not_authorized') {
 		sendAlertNotification('Oops! ', 'Authorize our app in order to use it. :)', 'logged-out-div','warning')
-	} else {}
+		profilePicUrl = '/static/ex-img/rec-ex.png'
+		loadTest()
+	} else {
+		profilePicUrl = '/static/ex-img/rec-ex.png'
+		loadTest()
+	}
 	});
 }
 
@@ -109,10 +114,6 @@ $().ready(function(){
 	var c = document.getElementById("mainCanvas");
 	var ctx = c.getContext("2d");
 	background(ctx, "#FFEB3B","#8BC34A");
-
-	setTimeout(function(){
-		loadTest()
-	}, 100)
 
 	function loadTest(){
 		addTitle(ctx, 'Zac Efron', 'title');
