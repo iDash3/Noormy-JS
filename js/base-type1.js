@@ -1,4 +1,4 @@
-cosnt fbAppId = '522565318118931'
+const fbAppId = '522565318118931'
 var fbinfo = new Array();
 var profilePicUrl
 var mainCanvas = document.getElementById("mainCanvas");
