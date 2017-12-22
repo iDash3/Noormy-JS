@@ -1,6 +1,9 @@
 var fbAppId = '522565318118931'
 var fbinfo = new Array();
 var profilePicUrl
+var mainCanvas = document.getElementById("mainCanvas");
+var ctx = mainCanvas.getContext("2d");
+
 function fbLoginStatus(){
 	FB.getLoginStatus(function(response) {
 	if (response.status === 'connected') {
@@ -50,6 +53,9 @@ function sendAlertNotification(strongText, normalText, targetId, type){
 	<strong>'+ strongText +'</strong>'+ normalText +'</div>')
 	$('#' + targetId).append(newAlert);
 }         
+function deleteCookie(name) {
+	document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
 
 window.fbAsyncInit = function() {
 	FB.init({
@@ -59,7 +65,6 @@ window.fbAsyncInit = function() {
 	  cookie           : true,
 	  version          : 'v2.11'
 	});
-
 
 	  if (typeof(FB) != 'undefined' && FB != null ) {
 	      console.log('SDK LOADED')
@@ -84,9 +89,8 @@ function loadTest(){
 	addTitle(ctx, 'Amante de animales', 'subtitle');
 	addMainImage(ctx, profilePicUrl);
 	addResultImage(ctx, "static/imgs/zac-animal.jpg");
-	var actualCanvas = convertCanvasToImage(c);
+	var actualCanvas = convertCanvasToImage(mainCanvas);
 }
-
 function background(ctx, color1, color2){
 	// Create gradient
 	// var grd=ctx.createLinearGradient(0,0,200,0); Creates a linear gradient.
@@ -94,7 +98,6 @@ function background(ctx, color1, color2){
 	var grd=ctx.createLinearGradient(0,0,800,200);
 	grd.addColorStop(0,color1);
 	grd.addColorStop(1,color2);
-
 	// Fill with gradient
 	ctx.fillStyle=grd;
 	ctx.fillRect(0,0,800,420);	
@@ -106,7 +109,7 @@ function addTitle(ctx, text, type){
 		ctx.font='800 30pt Roboto'
 		ctx.fillText(text,340,55)
 	}
-	if (type == 'subtitle') {
+	else if (type == 'subtitle') {
 		ctx.fillStyle='#2196F3';
 		ctx.font='500 25pt Roboto'
 		ctx.fillText(text,300,100)
@@ -133,6 +136,7 @@ function convertCanvasToImage(canvas){
 }
 
 $().ready(function(){
+	background(ctx, "#FFEB3B","#8BC34A");
 	$('#fb-logout-item').hide()	
 	$('#fb-button, #fb-login-item')
 		.click(function(){
@@ -160,11 +164,4 @@ $().ready(function(){
 			});
 			fbLoginStatus();
 		})
-	function deleteCookie(name) {
-    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-  }
-
-	var c = document.getElementById("mainCanvas");
-	var ctx = c.getContext("2d");
-	background(ctx, "#FFEB3B","#8BC34A");
 })
