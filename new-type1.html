@@ -35,19 +35,58 @@
     <div id="after-header">
       <div class="row justify-content-center" style="margin:0;">
         <div class="col-12 text-center after-header-1">
-          <span id="span-1">New </span><span id="span-2">TEST</span>
-          <p>Type 1</p>
+          <span id="span-1">Make a new </span><span id="span-2">TEST</span>
+          <p>Type 1:</p>
         </div>
-      </div>
+      </div> 
     </div>
-    <section class="form-container">
+
+    <section class="form-container row">
       <form class="container">
-        <h3>Title:</h3>
-        <input type="text" name="" value="" placeholder="(max 20 characters)"> 
-        <h3>Description:</h3>
-        <input type="text" name="" value="" placeholder="(max 40 characters)"> 
+        <div class="form-group">
+          <label for="inputPassword4"><h4>Test title:</h4></label>
+          <input type="password" id="inputPassword4" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+          <small id="passwordHelpInline" class="text-muted">
+            Must be 8-20 characters long.
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword4"><h4>Description:</h4></label>
+          <input type="password" id="inputPassword4" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+          <small id="passwordHelpInline" class="text-muted">
+            Must be 10-40 characters long.
+          </small>
+        </div>
+
+        <div class="row form-div2 text-center align-items-center pt-3 pb-2 mb-2">
+          <div class="col-12">
+            <h4>Upload test image</h4>
+          </div>
+          <div class="row container align-items-center pt-3 pb-3" id="preview-container">
+            <div class="col-12 col-md-4 push-md-4" id="previewMenu">
+              <p><b>Upload</b> a custom image or make one using the following template.</p>
+              <button class="btn btn-preview" id="mainPreview" type="button">Preview Template</button>
+              <button class="btn btn-preview" id="mainRefresh" type="button">Refresh</button>
+              <button class="btn btn-download" type="button">Download</button>
+            </div>  
+            <div class="col-12 col-md-8 justify-content-center" id="previewCanvas" style="display: none;">
+              <canvas height="300" width="525" id="thumbnail"></canvas>
+            </div>  
+          </div>
+          <div class="col-12 mt-2">
+              <label class="btn btn-default" id="btn-file">
+                Browse<input type="file" style="display: none;">
+              </label>
+              <span class="file-control" id="file-control">Choose image...</span>
+          </div> 
+        </div>
+       
+        <div class="text-center">
+          <button class="btn" type="submit" id="submit-test-button">Submit Test</button> 
+        </div>
       </form>
-    </section>
+    </section> 
+
     <section class="check-container container">
       <div id="guide" class="row justify-content-center align-items-center">
         <h2 class="col-12 text-center">How to upload a test:</h2>
