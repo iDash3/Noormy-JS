@@ -107,7 +107,7 @@ function addTitle(ctx, text, type){
 		ctx.fillText(text,340,55)
 	}
 	else if (type == 'subtitle') {
-		ctx.fillStyle='#2196F3';
+		ctx.fillStyle='#212121';
 		ctx.font='500 25pt Roboto'
 		ctx.fillText(text,300,100)
 	}

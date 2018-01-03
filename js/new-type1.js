@@ -28,7 +28,9 @@ $().ready(function(){
 			onFileSelect('#btn-file', '#file-control')
 		})
 		$('.btn-download').click(function(){
-			convertCanvasToImage(mainCanvas);
+			var download = document.getElementById('download');
+      download.href = document.getElementById('thumbnail').toDataURL();
+      download.download='imageName.png'
 		})
 })
 function loadTest(displayPictureUrl){
@@ -58,7 +60,7 @@ function addTitle(ctx, text, type){
 		ctx.fillText(text,200,55)
 	}
 	else if (type == 'subtitle') {
-		ctx.fillStyle='#2196F3';
+		ctx.fillStyle='#212121';
 		ctx.font='500 25pt Roboto'
 		ctx.fillText(text,100,100)
 	}
