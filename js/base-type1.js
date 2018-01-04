@@ -148,7 +148,7 @@ $().ready(function(){
 				}
 			},{scope: 'public_profile,email'});
 		})
-	$('#fb-share')
+	$('.fb-share')
 		.click(function(){
 			FB.ui({
 				method: 'share',
