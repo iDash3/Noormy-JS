@@ -54,11 +54,11 @@ body{
 }
 
 #footer-1{
-	padding-top: 10px;
+	padding: 0;
 	background-color: #FF5722;
 }
 #footer-2{
-	padding-top: 10px;
+	padding: 0;
 	background-color: #212121;
 	color: white;
 	font-size: 20px;
