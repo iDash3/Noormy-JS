@@ -28,6 +28,7 @@ body{
 }
 .form-container{
 	/*background: linear-gradient(to top right, #ffeb3b,#ffc107);*/
+	background-color: #FAFAFA;
 	padding: 10px 0; 
 }
 .after-header-1 #span-2{
@@ -117,6 +118,8 @@ body{
 }
 .form-div2{ 
 	background-color: #FAFAFA;
+	border: solid 2px #FFE0B2;
+	border-radius: 10px;
 }
 @media screen and (min-width: 992px){
 	.after-header-1 span{

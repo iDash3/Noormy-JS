@@ -2,8 +2,9 @@ var mainCanvas = document.getElementById("thumbnail");
 var ctx = mainCanvas.getContext("2d");
 
 $().ready(function(){
-	loadTest('static/ex-img/rec-ex.png')
+	loadTest()
 	$('#mainRefresh').hide()
+	$('.btn-refresh').hide()
 	function onFileSelect(buttonID, fileControl){
 		$(buttonID).on('change', ':file', function() {
 		  var input = $(this),
@@ -23,9 +24,19 @@ $().ready(function(){
 			$('#mainRefresh').show()
 			$('#mainPreview').hide()
 		})
+		$('.preview')
+		.click(function(){
+			$('#result1')
+				.show()
+			$('.btn-refresh').show()
+			$('.preview').hide()
+		})
 		// Must change into a revursive way.
 		$('#btn-file').click(function(){
 			onFileSelect('#btn-file', '#file-control')
+		})
+		$('#btn-file-1').click(function(){
+			onFileSelect('#btn-file-1', '#file-control-1')
 		})
 		$('.btn-download').click(function(){
 			var download = document.getElementById('download');
@@ -33,11 +44,11 @@ $().ready(function(){
       download.download='imageName.png'
 		})
 })
-function loadTest(displayPictureUrl){
+function loadTest(){
 	background(ctx, '#8BC34A', '#FF9800')
 	addTitle(ctx, 'Zac Efron', 'title');
 	addTitle(ctx, 'Amante de animales', 'subtitle');
-	addMainImage(ctx, displayPictureUrl);
+	addMainImage(ctx, "static/imgs/img_avatar3.png");
 	addResultImage(ctx, "static/imgs/zac-animal.jpg");
 	var actualCanvas = convertCanvasToImage(mainCanvas);
 }
@@ -68,7 +79,6 @@ function addTitle(ctx, text, type){
 function addMainImage(ctx, imgUrl){
 	let img = new Image()
 	img.src = imgUrl;
-	img.crossOrigin = "Anonymous";
 	img.addEventListener("load", function(){
 		ctx.drawImage(img,50,110,180,180)
 	}, false)

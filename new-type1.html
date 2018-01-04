@@ -45,41 +45,80 @@
       <form class="container">
         <div class="form-group">
           <label for="testTitle"><h4>Test title:</h4></label>
-          <input type="text" id="testTitle" class="form-control mx-sm-3" aria-describedby="testTitleHelper">
+          <input type="text" id="testTitle" class="form-control mx-sm-3" aria-describedby="testTitleHelper" required>
           <small class="text-muted">
             Must be 8-20 characters long.
           </small>
         </div>
         <div class="form-group">
           <label for="testDescription"><h4>Description:</h4></label>
-          <input type="text" id="testDescription" class="form-control mx-sm-3" aria-describedby="testDescriptionHelper">
+          <input type="text" id="testDescription" class="form-control mx-sm-3" aria-describedby="testDescriptionHelper" required>
           <small class="text-muted">
             Must be 10-40 characters long.
           </small>
         </div>
-
-        <div class="row form-div2 text-center align-items-center pt-3 pb-2 mb-2">
+        <div class="col-12 text-center">
+          <h4>Upload test thumbnail</h4>
+        </div>
+        <div class="row form-div2 text-center align-items-center pt-3 pb-2 mb-4">
           <div class="col-12">
-            <h4>Upload test image</h4>
+            <h5>Thumbail</h5>
           </div>
           <div class="row container align-items-center pt-3 pb-3" id="preview-container">
             <div class="col-12 col-md-4 push-md-4" id="previewMenu">
-              <p><b>Upload</b> a custom image or make one using the following template.</p>
+              <p><b>Upload</b> a <a href="guidelines.html">custom image</a> or make one using the following template.</p>
               <button class="btn btn-preview" id="mainPreview" type="button">Preview Template</button>
               <button class="btn btn-preview" id="mainRefresh" type="button">Refresh</button>
               <a id="download">
                 <button class="btn btn-download" type="button">Download</button>
               </a>
             </div>  
-            <div class="col-12 col-md-8 justify-content-center" id="previewCanvas" style="display: none;">
-              <canvas height="300" width="525" id="thumbnail"></canvas>
+            <div class="col-12 col-md-8 justify-content-center mt-1 mb-1" id="previewCanvas" style="display: none;">
+              <canvas class="img-fluid" height="300" width="525" id="thumbnail"></canvas>
             </div>  
           </div>
           <div class="col-12 mt-2">
               <label class="btn btn-default" id="btn-file">
-                Browse<input type="file" style="display: none;">
+                Browse<input type="file" style="display: none;" required>
               </label>
               <span class="file-control" id="file-control">Choose image...</span>
+          </div> 
+        </div> 
+        <div class="col-12 text-center">
+          <h3>Test results</h3>
+        </div>
+        <div class="row form-div2 text-center align-items-center pt-3 pb-2 mb-2">
+          <div class="col-12">
+            <h5>Result number 1</h5>
+          </div> 
+          <div class="row container align-items-center justify-content-center pt-3 pb-3" id="preview-container">
+            <div class="col-9">
+              <div class="form-group">
+                <label for="testTitle"><h5>Result title:</h5></label>
+                <input type="text" id="testTitle" class="form-control mx-sm-3" aria-describedby="testTitleHelper">
+                <small class="text-muted">
+                  Must be 8-20 characters long.
+                </small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 preview-menu">
+              <p><b>Upload</b> a <a href="guidelines.html">custom image</a> or make one using the following template.</p>
+              <button class="btn btn-preview preview" type="button">Preview Template</button>
+              <button class="btn btn-preview btn-refresh" type="button">Refresh</button>
+              <a id="download">
+                <button class="btn btn-download" type="button">Download</button>
+              </a>
+            </div>  
+            <div class="col-12 col-md-8 justify-content-center" id="result1" style="display: none;">
+              <!-- <canvas class="img-fluid" height="300" width="525" id="thumbnail"></canvas> -->
+              <img src="static/ex-img/rec-ex.png">
+            </div>  
+          </div>
+          <div class="col-12 mt-2">
+              <label class="btn btn-default" id="btn-file-1">
+                Browse<input type="file" style="display: none;">
+              </label>
+              <span class="file-control" id="file-control-1">Choose image...</span>
           </div> 
         </div>
        
@@ -88,22 +127,6 @@
         </div>
       </form>
     </section> 
-
-    <section class="check-container container">
-      <div id="guide" class="row justify-content-center align-items-center">
-        <h2 class="col-12 text-center">How to upload a test:</h2>
-        <div class="col-12 col-md-4">
-          <img src="static/ex-img/rec-ex.png" alt="" class="img-fluid">
-        </div>
-        <div class="col-12 col-md-4">
-          <img class="img-fluid" src="static/ex-img/rec-ex.png" alt="">
-        </div>
-        <div class="col-12 col-md-4">
-          <img class="img-fluid" src="static/ex-img/rec-ex.png" alt="">
-        </div>
-      </div>
-    </section>
-
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
