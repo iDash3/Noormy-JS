@@ -162,4 +162,13 @@ $().ready(function(){
 			});
 			fbLoginStatus();
 		})
+	$('#temp1').click(function(){
+		FB.ui({
+				method: 'feed',
+				link: 'https://idash3.github.io/Noormy-JS/base-1.html',
+				caption: 'Test title',
+				source: 'static/imgs/lol.png',
+			}, function(response){})
+	})
+	$('#temp2').click(function(){})
 })
