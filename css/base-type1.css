@@ -20,9 +20,6 @@ body{
 	color: #F57C00;
 	text-decoration: underline;
 }
-.ad-img{
-	margin: 15px;
-}
 .ad-img-md{
 	margin: 15px;
 	height: 100px;
@@ -75,7 +72,7 @@ body{
 }
 .text-fb{
 	font-weight: 300;
-	font-size: 35px;
+	font-size: 25px;
 }
 #fb-button{
 	height: 170px;
@@ -134,7 +131,7 @@ body{
 	font-size: 28px;
 }
 .test-main-title{
-	font-size: 35px;
+	font-size: 25px;
 	font-weight: 500;
 	background-color: #CFD8DC;
 	color: #212121;
@@ -155,5 +152,11 @@ body{
 @media screen and (min-width: 992px){
 	.fb-share{
 		padding: 15px 85px;
+	}
+	.test-main-title{
+		font-size: 35px;
+	}
+	.text-fb{
+		font-size: 35px;
 	}
 }
