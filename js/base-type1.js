@@ -170,5 +170,12 @@ $().ready(function(){
 				source: 'static/imgs/lol.png',
 			}, function(response){})
 	})
-	$('#temp2').click(function(){})
+	$('#temp2').click(function(){
+	})
+	$('#temp3').click(function(){
+		FB.ui({
+		  method: 'send',
+		  link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+		});	
+	})
 })

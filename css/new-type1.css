@@ -120,6 +120,7 @@ body{
 	background-color: #FAFAFA;
 	border: solid 2px #FFE0B2;
 	border-radius: 10px;
+	margin: 0;
 }
 @media screen and (min-width: 992px){
 	.after-header-1 span{

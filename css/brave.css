@@ -138,48 +138,20 @@ body{
 	font-size: 18px;
 	color: black;
 }
-.check-container{
-	margin-top: 50px;
+#instructions{
+	border: 2px solid #212121;
+	border-radius: 5px;
 }
-.flame-b{
-	font-family: Roboto;
-	font-size: 30px;
-	font-weight: 800;	
-	height: 65px;
-	width: 250px;
-	border-radius: 30px;
-	color: #FF7043;
-	background-color: #263238;
-	border: 5px solid #FF5722;
-	/*background: linear-gradient(to top, #FFC107, #FF5722);*/
+#hot-container{
+	background-color: #FFF3E0;
 }
-.flame-b:hover{background-color: #E64A19;}
-.text-announce{
-	margin: 15px;
-	font-size: 28px;
-}
-.text-announce-r{
-	color: white;
-	background-color: #212121;
-	margin: 15px;
-	font-size: 28px;
-}
-.text-hot{
-	color: #FF5722;
-	font-weight: 800;
-}
-#fb-blue{
-	color: #2196F3 !important;
-}
+#midly{}
+#hot{}
+#super{}
 @media screen and (min-width: 992px){
 	.after-header-1 span{
 	font-size: 40pt;
 	font-weight: 500;
 	color: white;
-	}
-	.flame-b{
-		height: 65px;
-		width: 300px;
-		font-size: 35px;
 	}
 }
