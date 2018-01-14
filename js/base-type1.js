@@ -159,12 +159,26 @@ $().ready(function(){
 	$('.fb-share')
 		.click(function(){
 			FB.ui({
-				method:'feed',
-				name: 'testing',
-				link: 'http://www.facebook.com',
-				picture: 'https://i.imgur.com/0o1sDst.jpg',
-				source: 'https://i.imgur.com/0o1sDst.jpg'
-			});
+			    method: 'share_open_graph',
+			    action_type: 'og.shares',
+			    action_properties: JSON.stringify({
+			        object : {
+			           'og:url': 'http://astahdziq.in/', // your url to share
+			           'og:title': 'Here my custom title',
+			           'og:description': 'here custom description',
+			           'og:image': 'http://example.com/link/to/your/image.jpg'
+			        }
+			    })
+    },
+    // callback
+    function(response) {
+    if (response && !response.error_message) {
+        // then get post content
+        alert('successfully posted. Status id : '+response.post_id);
+    } else {
+        alert('Something went error.');
+    }
+});
 		})
 	$('#temp1').click(function(){
 		FB.api('/me/feed', 'post', {
