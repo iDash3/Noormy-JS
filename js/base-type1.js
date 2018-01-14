@@ -136,6 +136,7 @@ function convertCanvasToImage(canvas){
 $().ready(function(){
 	background(ctx, "#FFEB3B","#8BC34A");
 	$('#fb-logout-item').hide()	
+
 	$('#fb-button, #fb-login-item')
 		.click(function(){
 			console.log('Facebook Login')
@@ -146,7 +147,7 @@ $().ready(function(){
         } else {
         	console.log('User cancelled login or did not fully authorize.');
 				}
-			},{scope: 'public_profile,email,publish_actions'});
+			},{scope: 'public_profile,publish_actions'});
 		})
 	$('.fb-share')
 		.click(function(){
@@ -171,5 +172,8 @@ $().ready(function(){
 			}, function(response){})
 	})
 	$('#temp2').click(function(){
+		FB.api('/me/feed', 'post', {message: 'Random message', function(response){
+			document.getElementById('status-div').innerHTML = response.id;
+		}})
 	})
 })
