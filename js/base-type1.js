@@ -166,16 +166,11 @@ $().ready(function(){
 		FB.ui({
 				method: 'feed',
 				link: 'https://idash3.github.io/Noormy-JS/base-1.html',
-				caption: 'Test title',
-				source: 'static/imgs/lol.png',
+				message: 'Test title',
+				source: 'https://i.imgur.com/0o1sDst.jpg',
 			}, function(response){})
 	})
 	$('#temp2').click(function(){
 	})
-	$('#temp3').click(function(){
-		FB.ui({
-		  method: 'send',
-		  link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
-		});	
 	})
 })
