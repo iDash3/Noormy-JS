@@ -159,26 +159,25 @@ $().ready(function(){
 	$('.fb-share')
 		.click(function(){
 			FB.ui({
-			    method: 'share_open_graph',
-			    action_type: 'og.shares',
-			    action_properties: JSON.stringify({
-			        object : {
-			           'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html', // your url to share
-			           'og:title': 'Titulo - Al fin logre hacer que esta porquria funciones',
-			           'og:description': 'Jesus fckin Christ lo qu esto costo',
-			           'og:image': 'https://i.imgur.com/0o1sDst.jpg'
-			        }
-			    })
-    },
-    // callback
-    function(response) {
-    if (response && !response.error_message) {
-        // then get post content
-        alert('successfully posted. Status id : '+response.post_id);
-    } else {
-        alert('Something went error.');
-    }
-});
+		    method: 'share_open_graph',
+		    action_type: 'og.shares',
+		    action_properties: JSON.stringify({
+	        object : {
+	           'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
+	           'og:title': 'Noormy - Que Zac Efron eres?',
+	           'og:description': 'Description: Simple description of the test.',
+	           'og:image': 'static/ex-img/zac-profile.png'
+	        }
+		    })
+	    },
+		    function(response) {
+		    if (response && !response.error_message) {
+		        // then get post content
+		        alert('successfully posted. Status id : '+response.post_id);
+		    } else {
+		        alert('Something went error.');
+		    }
+			});
 		})
 	$('#temp1').click(function(){
 		FB.api('/me/feed', 'post', {
@@ -187,13 +186,23 @@ $().ready(function(){
 		})
 	})
 	$('#temp2').click(function(){
-		FB.ui({
-		  method: 'share_open_graph',
-		  action_type: '/me/feed',
-		  action_properties: JSON.stringify({
-		    link:'https://developers.facebook.com/docs/',
-		    source: 'https://i.imgur.com/0o1sDst.jpg',
-		  })
-		}, function(response){});
-	})
+	FB.ui({
+    method: 'share_open_graph',
+    action_type: 'og.shares',
+    action_properties: JSON.stringify({
+      object : {
+         'og:title': 'Noormy - Que Zac Efron eres?',
+         'og:description': 'Description: Simple description of the test.',
+         'og:image': 'static/ex-img/zac-profile.png'
+      }
+    })
+  },
+    function(response) {
+    if (response && !response.error_message) {
+        // then get post content
+        alert('successfully posted. Status id : '+response.post_id);
+    } else {
+        alert('Something went error.');
+    }
+	});
 })
