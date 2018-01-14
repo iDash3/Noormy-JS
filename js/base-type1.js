@@ -172,5 +172,4 @@ $().ready(function(){
 	})
 	$('#temp2').click(function(){
 	})
-	})
 })
