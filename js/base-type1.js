@@ -191,7 +191,6 @@ $().ready(function(){
 	    action_type: 'og.shares',
 	    action_properties: JSON.stringify({
         object : {
-           'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
            'og:title': 'Noormy - Que Zac Efron eres?',
            'og:description': 'Description: Simple description of the test.',
            'og:image': 'static/ex-img/zac-profile.png'
