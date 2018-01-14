@@ -186,23 +186,25 @@ $().ready(function(){
 		})
 	})
 	$('#temp2').click(function(){
-	FB.ui({
-    method: 'share_open_graph',
-    action_type: 'og.shares',
-    action_properties: JSON.stringify({
-      object : {
-         'og:title': 'Noormy - Que Zac Efron eres?',
-         'og:description': 'Description: Simple description of the test.',
-         'og:image': 'static/ex-img/zac-profile.png'
-      }
-    })
-  },
-    function(response) {
-    if (response && !response.error_message) {
-        // then get post content
-        alert('successfully posted. Status id : '+response.post_id);
-    } else {
-        alert('Something went error.');
-    }
-	});
+		FB.ui({
+	    method: 'share_open_graph',
+	    action_type: 'og.shares',
+	    action_properties: JSON.stringify({
+        object : {
+           'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
+           'og:title': 'Noormy - Que Zac Efron eres?',
+           'og:description': 'Description: Simple description of the test.',
+           'og:image': 'static/ex-img/zac-profile.png'
+        }
+	    })
+    },
+	    function(response) {
+	    if (response && !response.error_message) {
+	        // then get post content
+	        alert('successfully posted. Status id : '+response.post_id);
+	    } else {
+	        alert('Something went error.');
+	    }
+		});
+	})
 })
