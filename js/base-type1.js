@@ -149,13 +149,6 @@ $().ready(function(){
 				}
 			},{scope: 'public_profile,publish_actions'});
 		})
-	$('.fb-share')
-		.click(function(){
-			FB.ui({
-				method: 'share',
-				href: 'https://idash3.github.io/Noormy-JS/base-1.html',
-			}, function(response){})
-		})
 	$('#fb-logout-item')
 		.click(function(){
 			FB.logout(function(response) {
@@ -163,16 +156,22 @@ $().ready(function(){
 			});
 			fbLoginStatus();
 		})
+	$('.fb-share')
+		.click(function(){
+			FB.ui({
+				method: 'share',
+				href: 'https://idash3.github.io/Noormy-JS/base-1.html',
+			}, function(response){})
+		})
 	$('#temp1').click(function(){
 		FB.api('/me/feed', 'post', {
 			link: 'https://developers.facebook.com/docs/sharing/opengraph',
-			message: 'Faceook Open Graph is really fckin cool',
 			source: 'https://i.imgur.com/0o1sDst.jpg',
 		})
 	})
 	$('#temp2').click(function(){
-		FB.api('/me/feed', 'post', {message: 'Random message'}, function(r){
-			document.getElementById('status-text').innerHTML = r.id;
+		FB.api('/me/feed', 'post', {message: 'Random message'}, function(response){
+			document.getElementById('status-text').innerHTML = response.id;
 		})
 	})
 })
