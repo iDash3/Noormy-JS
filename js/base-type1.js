@@ -164,16 +164,15 @@ $().ready(function(){
 			fbLoginStatus();
 		})
 	$('#temp1').click(function(){
-		FB.ui({
-				method: 'feed',
-				link: 'https://idash3.github.io/Noormy-JS/base-1.html',
-				message: 'Test title',
-				source: 'https://i.imgur.com/0o1sDst.jpg',
-			}, function(response){})
+		FB.api('/me/feed', 'post', {
+			link: 'https://developers.facebook.com/docs/sharing/opengraph',
+			message: 'Faceook Open Graph is really fckin cool',
+			source: 'https://i.imgur.com/0o1sDst.jpg'
+		})
 	})
 	$('#temp2').click(function(){
-		FB.api('/me/feed', 'post', {message: 'Random message', function(response){
-			document.getElementById('status-div').innerHTML = response.id;
+		FB.api('/me/feed', 'post', {message: 'Random message', function(r){
+			document.getElementById('status-text').innerHTML = r.id;
 		}})
 	})
 })
