@@ -146,7 +146,7 @@ $().ready(function(){
         } else {
         	console.log('User cancelled login or did not fully authorize.');
 				}
-			},{scope: 'public_profile,email'});
+			},{scope: 'public_profile,email,publish_actions'});
 		})
 	$('.fb-share')
 		.click(function(){
