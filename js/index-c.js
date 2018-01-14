@@ -12,7 +12,7 @@ function fbLoginStatus(){
               if (response.name != 'undefined'){
                 username = ' ' + response.name + ' ';
               }
-              $('#sht-div').html('Hey' + username + ', The Nigerian Prince send his regards! :)')
+              $('#sht-div').html('Hey' + '<b class="amber"> ' + username + '</b>' + ', The Nigerian Prince send his regards! :)')
             });
             $('#fb-login-item').hide()
             $('#fb-logout-item').show()

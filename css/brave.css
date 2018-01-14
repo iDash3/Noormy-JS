@@ -143,11 +143,34 @@ body{
 	border-radius: 5px;
 }
 #hot-container{
-	background-color: #FFF3E0;
+	background-color: #F5F5F5;
+	margin: 0;
+	border-radius: 10px;
 }
-#midly{}
-#hot{}
-#super{}
+#midly{
+	background-color: #FFEB3B;
+	background: linear-gradient(to top, #FFEB3B,#FDD835); 
+}
+#hot{
+	background-color: #FFC107;
+	background: linear-gradient(to top, #FFC107, #FFA000); 
+
+}
+#super{
+	background-color: #FF5722;	
+	background: linear-gradient(to top, #FF5722,#E64A19); 
+}
+.blue{color:#2196F3;}
+.orange{color:#FF9800;}
+.amber{color:#FFC107;}
+.deep-orange{color:#FF5722;}
+#container-level p{
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	font-weight: 500;
+	text-decoration: underline;
+}
 @media screen and (min-width: 992px){
 	.after-header-1 span{
 	font-size: 40pt;

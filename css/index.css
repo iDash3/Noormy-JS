@@ -171,6 +171,10 @@ body{
 #fb-blue{
 	color: #2196F3 !important;
 }
+.blue{color:#2196F3;}
+.orange{color:#FF9800;}
+.amber{color:#FFC107;}
+.deep-orange{color:#FF5722;}
 @media screen and (min-width: 992px){
 	.after-header-1 span{
 	font-size: 40pt;
