@@ -159,9 +159,12 @@ $().ready(function(){
 	$('.fb-share')
 		.click(function(){
 			FB.ui({
-				method: 'share',
-				href: 'https://idash3.github.io/Noormy-JS/base-1.html',
-			}, function(response){})
+				method:'feed',
+				name: 'testing',
+				link: 'http://www.facebook.com',
+				picture: 'https://i.imgur.com/0o1sDst.jpg',
+				source: 'https://i.imgur.com/0o1sDst.jpg'
+			});
 		})
 	$('#temp1').click(function(){
 		FB.api('/me/feed', 'post', {
@@ -170,8 +173,13 @@ $().ready(function(){
 		})
 	})
 	$('#temp2').click(function(){
-		FB.api('/me/feed', 'post', {message: 'Random message'}, function(response){
-			document.getElementById('status-text').innerHTML = response.id;
-		})
+		FB.ui({
+		  method: 'share_open_graph',
+		  action_type: '/me/feed',
+		  action_properties: JSON.stringify({
+		    link:'https://developers.facebook.com/docs/',
+		    source: 'https://i.imgur.com/0o1sDst.jpg',
+		  })
+		}, function(response){});
 	})
 })
