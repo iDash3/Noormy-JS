@@ -163,10 +163,10 @@ $().ready(function(){
 			    action_type: 'og.shares',
 			    action_properties: JSON.stringify({
 			        object : {
-			           'og:url': 'http://astahdziq.in/', // your url to share
-			           'og:title': 'Here my custom title',
-			           'og:description': 'here custom description',
-			           'og:image': 'http://example.com/link/to/your/image.jpg'
+			           'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html', // your url to share
+			           'og:title': 'Titulo - Al fin logre hacer que esta porquria funciones',
+			           'og:description': 'Jesus fckin Christ lo qu esto costo',
+			           'og:image': 'https://i.imgur.com/0o1sDst.jpg'
 			        }
 			    })
     },
