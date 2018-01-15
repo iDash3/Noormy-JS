@@ -163,11 +163,12 @@ $().ready(function(){
 		    action_type: 'og.shares',
 		    action_properties: JSON.stringify({
 	        object : {
-           'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
-           'og:title': 'Noormy - Que Zac Efron eres?',
-           'og:description': 'Description: Simple description of the test.',
-           'og:type': 'website',
-           'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png'
+						'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
+						'og:title': 'Noormy - Que Zac Efron eres?',
+						'og:description': 'Description: Simple description of the test.',
+						'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
+          	'og:image:width': '800',
+          	'og:image:height': '420',
 	        }
 		    })
 	    },
@@ -182,8 +183,7 @@ $().ready(function(){
 		})
 	$('#temp1').click(function(){
 		FB.api('/me/feed', 'post', {
-			link: 'https://developers.facebook.com/docs/sharing/opengraph',
-			source: 'https://i.imgur.com/0o1sDst.jpg',
+			link: 'https://i.imgur.com/0o1sDst.jpg',
 		})
 	})
 	$('#temp2').click(function(){
@@ -192,7 +192,8 @@ $().ready(function(){
 	    action_type: 'og.shares',
 	    action_properties: JSON.stringify({
         object : {
-	       'og:image': 'https://i.imgur.com/0o1sDst.jpg'
+        	'og:title': 'Noormy - Que Zac Efron eres?',
+	       	'og:image': 'https://i.imgur.com/0o1sDst.jpg'
         }
 	    })
     },
@@ -211,7 +212,8 @@ $().ready(function(){
 	    action_type: 'og.shares',
 	    action_properties: JSON.stringify({
         object : {
-	       'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png'
+        	'og:title': 'Noormy - Que Zac Efron eres?',
+	       	'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png'
         }
 	    })
     },
