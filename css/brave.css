@@ -147,18 +147,24 @@ body{
 	margin: 0;
 	border-radius: 10px;
 }
+#hot-container p {
+	font-size: 25px;
+}
 #midly{
 	background-color: #FFEB3B;
 	background: linear-gradient(to top, #FFEB3B,#FDD835); 
+	font-weight: 400;
 }
 #hot{
 	background-color: #FFC107;
 	background: linear-gradient(to top, #FFC107, #FFA000); 
+	font-weight: 600;
 
 }
 #super{
 	background-color: #FF5722;	
 	background: linear-gradient(to top, #FF5722,#E64A19); 
+	font-weight: 900;
 }
 .blue{color:#2196F3;}
 .orange{color:#FF9800;}
@@ -173,7 +179,7 @@ body{
 }
 @media screen and (min-width: 992px){
 	.after-header-1 span{
-	font-size: 40pt;
+	font-size: 35pt;
 	font-weight: 500;
 	color: white;
 	}

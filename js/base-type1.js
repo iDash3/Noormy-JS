@@ -163,6 +163,7 @@ $().ready(function(){
 		    action_type: 'og.shares',
 		    action_properties: JSON.stringify({
 	        object : {
+	        	// Wrong
 						'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
 						'og:title': 'Noormy - 1 Que Zac Efron eres?',
 						'og:description': 'Description: Simple description of the test.',
@@ -215,6 +216,7 @@ $().ready(function(){
 	    action_type: 'og.shares',
 	    action_properties: JSON.stringify({
         object : {
+        	// Wrong
         	'source': 'https://i.imgur.com/0o1sDst.jpg'
         }
 	    })
