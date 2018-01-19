@@ -77,8 +77,13 @@ $().ready(function(){
       });
   })
   
-  $('.flame-b')
-    .click(function(){
-      console.log('Random link')
-  })
+  window.onscroll = function() {
+    var header = document.getElementById("header-container");
+    var sticky = 80
+    if (window.pageYOffset >= sticky) {
+      header.classList.add("sticky");
+    } else{
+      header.classList.remove("sticky");
+    } 
+  };
 })

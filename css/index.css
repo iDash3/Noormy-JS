@@ -7,7 +7,13 @@ body{
 	overflow-x: hidden;
 }
 #header-container{
-	background-color: #292b2c;
+	background: #263238;
+	z-index:1000
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 #main-title{
 	text-decoration: none;
@@ -20,6 +26,14 @@ body{
 	color: #F57C00;
 	text-decoration: underline;
 }
+#header-1 #editor{color: #E0E0E0;}
+#header-1 #editor:hover{color: #FF5722;text-decoration: underline;}
+.fb-logout-item img, .fb-login-item img{
+	height: 36px;
+}
+#header-2{}
+
+
 #after-header{
 	position: relative;
 	background-color: #FF5722;
@@ -149,7 +163,7 @@ body{
 	width: 250px;
 	border-radius: 30px;
 	color: #FF7043;
-	background-color: #263238;
+	background-color: #37474F;
 	border: 5px solid #FF5722;
 	/*background: linear-gradient(to top, #FFC107, #FF5722);*/
 }
@@ -160,7 +174,7 @@ body{
 }
 .text-announce-r{
 	color: white;
-	background-color: #212121;
+	background-color: #37474F;
 	margin: 15px;
 	font-size: 28px;
 }
