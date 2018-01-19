@@ -166,6 +166,9 @@ body{
 	background: linear-gradient(to top, #FF5722,#E64A19); 
 	font-weight: 900;
 }
+#midly:hover, #hot:hover, #super:hover{
+	border: 2px solid red;
+}
 .blue{color:#2196F3;}
 .orange{color:#FF9800;}
 .amber{color:#FFC107;}

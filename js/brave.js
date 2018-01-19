@@ -10,16 +10,11 @@ function fbLoginStatus(){
               if (response.name != 'undefined'){
                 username = ' ' + response.name + ' ';
               }
-              $('#sht-div').html('Hey' + '<b class="amber"> ' + username + '</b>' + ', CUSTOM MESSAGE HERE')
             });
             $('#fb-login-item').hide()
             $('#fb-logout-item').show()
         } else if (response.status === 'not_authorized') {
-            $('#sht-div').html('Authorize our app in order to use it. :)')
         } else {
-          let connectSpan = $('<span>Not connected to Facebook.\
-            <a id="fb-blue"><b>Click here</b> to connect.</a></span>')
-            $('#sht-div').html(connectSpan)
         }
     });
 }
@@ -52,7 +47,15 @@ window.fbAsyncInit = function() {
 
 $().ready(function(){
   $('#fb-logout-item').hide()
-  $('#fb-login-item, #fb-blue')
+   $('#fb-logout-item')
+    .click(function(){
+      console.log('Facebook Logout')
+      FB.logout(function(response) {
+        deleteCookie("fblo_" + fbAppId); // fblo_yourFBAppId. example: fblo_444499089231295
+        fbLoginStatus();
+      });
+  })
+  $('#fb-login-item')
     .click(function(){
       console.log('Facebook Login')
       FB.login(function(response){
@@ -67,18 +70,21 @@ $().ready(function(){
         }
       },{scope: 'public_profile,email'});
   })
-    
-  $('#fb-logout-item')
-    .click(function(){
-      console.log('Facebook Logout')
-      FB.logout(function(response) {
-        deleteCookie("fblo_" + fbAppId); // fblo_yourFBAppId. example: fblo_444499089231295
-        fbLoginStatus();
-      });
-  })
-  
-  $('.flame-b')
-    .click(function(){
-      console.log('Random link')
-  })
+ 
+    $('#midly').click(function(){
+		FB.api('/me/feed', 'post', {
+			source: 'https://i.imgur.com/0o1sDst.jpg',
+		})
+	})
+	$('#hot').click(function(){
+		FB.api('/me/feed', 'post', {
+			source: 'https://i.imgur.com/0o1sDst.jpg',
+		})
+	})
+	$('#super').click(function(){
+		FB.api('/me/feed', 'post', {
+			source: 'https://i.imgur.com/0o1sDst.jpg',
+		})
+	})
+
 })
