@@ -59,7 +59,13 @@ body{
 #fb-login-item-large,#fb-logout-item-large{
 	padding: 5px 15px 5px 5px;
 }
-
+#desplegable-menu:hover { 
+	filter:opacity(80%);
+}
+#desplegable-menu:focus { 
+	filter:opacity(50%);
+	outline:0 !important;
+}
 
 #after-header{
 	position: relative;
@@ -73,6 +79,7 @@ body{
 	font-weight: 500;
 	color: white;
 }
+
 .post-img{
 	height: 200px;
 	border-radius: 10px;
@@ -87,8 +94,6 @@ body{
 }
 .index-row{
 	margin-top: 15px;
-}
-.ad-img{
 }
 #menu-container{
 	padding: 45px 0 0 0; 
@@ -106,19 +111,10 @@ body{
 	background: none;
 	border: none;
 }
-#desplegable-menu:hover { 
-	filter:opacity(80%);
-}
-#desplegable-menu:focus { 
-	filter:opacity(50%);
-	outline:0 !important;
-}
-
 
 .container-h {
   position: relative;
 }
-
 .overlay {
   border-radius: 10px;
   position: absolute;
@@ -194,6 +190,8 @@ body{
 	/*background: linear-gradient(to top, #FFC107, #FF5722);*/
 }
 .flame-b:hover{background-color: #E64A19;}
+
+/* Text styles. */
 .text-announce{
 	margin: 15px;
 	font-size: 28px;
@@ -211,10 +209,14 @@ body{
 #fb-blue{
 	color: #2196F3 !important;
 }
+
+/* Font colors. */
 .blue{color:#2196F3;}
 .orange{color:#FF9800;}
 .amber{color:#FFC107;}
 .deep-orange{color:#FF5722;}
+
+/* Change design on screen width. */
 @media screen and (min-width: 992px){
 	.after-header-1 span{
 	font-size: 40pt;
