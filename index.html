@@ -27,39 +27,48 @@
           <div class="col-7">
             <a id="main-title" href="index.html">Noormy</a>
           </div>
-          <div class="col-2 push-1 text-center">
-            <img src="static/icons/search_w_24.png" alt="Menu">
+          <div class="col-2 push-1 text-center pt-1 pb-1">
+            <a href="">
+              <img class="search-item" src="static/icons/search_w_24.png" alt="Menu">
+            </a>
             <a href="password.html" id="editor">
-              <span style="margin-left: 20px;">Editor's hub</span>
+              <span class="ml-4">Editor's hub</span>
             </a>
           </div>  
           <div class="col-2 push-1">
-            <div class="fb-login-item">
+            <a class="fb-login" id="fb-login-item-large">
               <img src="static/ex-img/logo-facebook.png">
               <span class="blue">Login</span>
-            </div>
-            <div class="fb-logout-item" style="display: none;">
+            </a>
+            <div class="fb-logout" style="display: none;">
               <img src="static/ex-img/logo-facebook.png">
               <span class="deep-orange">Logout</span>
             </div>
           </div>
         </div>
-        <div class="row align-items-center justify-content-center hidden-md-up" id="header-1">
-          <div class="col-5 offset-md-5 push-2 push-md-0">
-            <a id="main-title" href="index.html">Noormy</a>
-          </div>
-          <div class="col-2 text-left text-md-right pull-7 pull-md-0 ">
+        <div class="row align-items-center hidden-md-up" id="header-1">
+          <div class="col-2 text-left">
             <div class="dropdown">
               <button class="" id="desplegable-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="static/icons/menu_white_36.png" alt="Menu">
+                <img src="static/icons/menu_white_24.png" alt="Menu">
               </button>
                <div class="dropdown-menu" aria-labelledby="desplegable-menu">
-                  <button class="dropdown-item" type="button" id="fb-login-item">Login with Facebook</button>
-                  <button class="dropdown-item" type="button" id="fb-logout-item">Logout of Facebook</button>
+                  <button class="dropdown-item fb-login" type="button" id="fb-login-item-small">
+                    <span class="blue">Login with Facebook</span>
+                  </button>
+                  <button class="dropdown-item fb-logout" type="button">
+                    <span class="deep-orange">Logout of Facebook</span>
+                  </button>
                   <a class="dropdown-item" href="password.html">Editor's page</a>
                   <a class="dropdown-item disabled" href="#">Chamber of secrets</a>
                 </div>
             </div>
+          </div>
+          <div class="col-1">
+            <img class="search-item" src="static/icons/search_w_24.png" alt="Menu">            
+          </div>
+          <div class="col-3 push-1">
+            <a id="main-title" href="index.html">Noormy</a>
           </div>
         </div>
       </div>
@@ -281,7 +290,10 @@
         </div> 
 
         <div class="col-12 col-md-4 text-center">
-          <div class="ad-img">
+          <div class="ad-img hidden-md-up mt-2 mb-2">
+            <img src="static/ex-img/lg-mobile-banner.png" alt="">
+          </div>
+          <div class="ad-img hidden-md-down">
             <img src="static/ex-img/md-rectangle.png" alt="">
           </div>
         </div>

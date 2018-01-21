@@ -32,6 +32,7 @@ body{
 	font-weight: 500;
 	color: white;
 }
+
 .post-img{
 	height: 200px;
 	border-radius: 10px;
@@ -138,15 +139,6 @@ body{
 	font-size: 18px;
 	color: black;
 }
-#instructions{
-	border: 2px solid #212121;
-	border-radius: 5px;
-}
-#hot-container{
-	background-color: #F5F5F5;
-	margin: 0;
-	border-radius: 10px;
-}
 #hot-container p {
 	font-size: 25px;
 }
@@ -167,16 +159,26 @@ body{
 	font-weight: 900;
 }
 #midly:hover, #hot:hover, #super:hover{
-	border: 2px solid red;
+	border: 3px solid #BF360C;
+	filter: brightness(97%);
 }
+#midly, #hot, #super{
+	margin: 1px;
+}
+/* Change text color */
 .blue{color:#2196F3;}
 .orange{color:#FF9800;}
 .amber{color:#FFC107;}
 .deep-orange{color:#FF5722;}
+
+#container-level{
+	border: 2px solid #9E9E9E;
+	border-radius: 5px;
+}
 #container-level p{
 	margin: 0;
 	padding: 0;
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: 500;
 	text-decoration: underline;
 }
