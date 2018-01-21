@@ -43,15 +43,20 @@ body{
 .search-item{
 	padding: 3px;
 }
+
 #fb-login-item-large span:hover{
 	color: #03A9F4;
 	text-decoration: underline;
 }
-#fb-login-item-large:hover{
+#fb-logout-item-large span:hover{
+	color: #FF5722;
+	text-decoration: underline;
+}
+#fb-login-item-large:hover, #fb-logout-item-large:hover{
 	background-color: #3b5999;
 	border-radius: 10px;
 }
-#fb-login-item-large{
+#fb-login-item-large,#fb-logout-item-large{
 	padding: 5px 15px 5px 5px;
 }
 
