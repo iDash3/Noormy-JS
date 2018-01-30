@@ -17,7 +17,7 @@ function fbLoginStatus(){
               username = ' ' + response.name + ' ';
             }
             let random_msg = custom_msg[Math.floor(Math.random() * custom_msg.length)];
-            $('#sht-div').html('Hey' + '<b class="amber"> ' + username + '</b>' + ', ' + random_msg);
+            $('#sht-div').html('Hey ' + '<b class="amber">' + username + '</b>' + ', ' + random_msg);
           });
           $('.fb-login').hide()
           $('.fb-logout').show()

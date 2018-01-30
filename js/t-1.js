@@ -151,13 +151,11 @@ $().ready(function(){
 		    action_type: 'og.shares',
 		    action_properties: JSON.stringify({
 	        object : {
-	        	// Wrong
+	        	// Experimental 1
 						'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
 						'og:title': 'Noormy - 1 Que Zac Efron eres?',
 						'og:description': 'Description: Simple description of the test.',
 						'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
-          	'og:image:width': '800',
-          	'og:type': 'website'
 	        }
 		    })
 	    },
@@ -170,6 +168,7 @@ $().ready(function(){
 		    }
 			});
 		})
+
 	$('#temp1').click(function(){
 		FB.api('/me/feed', 'post', {
 			source: 'https://i.imgur.com/0o1sDst.jpg',
@@ -181,11 +180,11 @@ $().ready(function(){
 	    action_type: 'og.shares',
 	    action_properties: JSON.stringify({
         object : {
-        	'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
-			'og:title': 'Noormy - 2 Que Zac Efron eres?',
-			'og:description': 'Description: Simple description of the test.',
-			'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
-        	'og:image:width': '800',
+	      	'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
+					'og:title': 'Noormy - 2 Que Zac Efron eres?',
+					'og:description': 'Description: Simple description of the test.',
+					'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
+	      	'og:image:width': '800',
         }
 	    })
     },
@@ -200,22 +199,11 @@ $().ready(function(){
 	})
 	$('#temp3').click(function(){
 		FB.ui({
-	    method: 'share_open_graph',
-	    action_type: 'og.shares',
-	    action_properties: JSON.stringify({
-        object : {
-        	// Wrong
-        	'source': 'https://i.imgur.com/0o1sDst.jpg'
-        }
-	    })
-    },
-	    function(response) {
-	    if (response && !response.error_message) {
-	        // then get post content
-	        alert('successfully posted. Status id : '+response.post_id);
-	    } else {
-	        alert('Something went error.');
-	    }
+			method: 'share',
+			href: window.location.href
+		},
+		function (response) {
+		// Action after response
 		});
 	})
 })
