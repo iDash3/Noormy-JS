@@ -173,9 +173,16 @@ $().ready(function(){
 		})
 
 	$('#temp1').click(function(){
-		FB.api('/me/feed', 'post', {
-			source: 'https://i.imgur.com/0o1sDst.jpg',
-		})
+		// FB.api('/me/feed', 'post', {
+		// 	source: 'https://i.imgur.com/0o1sDst.jpg',
+		// })
+		FB.ui({
+			method: 'share',
+			href: 'https://idash3.github.io/Noormy-JS/guidelines.html'
+		},
+		function (response) {
+		// Action after response
+		});
 	})
 
 	$('#temp2').click(function(){
