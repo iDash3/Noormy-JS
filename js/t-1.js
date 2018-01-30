@@ -156,7 +156,7 @@ $().ready(function(){
 						'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
 						'og:title': 'Noormy - 1 Que Zac Efron eres?',
 						'og:description': 'Description: Simple description of the test.',
-						'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
+						'og:image': 'http://via.placeholder.com/1200x630',
 						'og:image:width': '1200',
 						'og:image:height': '630',
 	        }
@@ -165,9 +165,9 @@ $().ready(function(){
 		    function(response) {
 		    if (response && !response.error_message) {
 		        // then get post content
-		        alert('successfully posted. Status id : '+response.post_id);
+		        console.log('successfully posted. Status id : '+response.post_id);
 		    } else {
-		        alert('Something went error.');
+		        console.log('Something went error.');
 		    }
 			});
 		})
@@ -188,7 +188,7 @@ $().ready(function(){
 					'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
 					'og:title': 'Noormy - 1 Que Zac Efron eres?',
 					'og:description': 'Description: Simple description of the test.',
-					'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
+					'og:image': 'http://via.placeholder.com/1200x630',
 					'og:image.width': '1200',
 					'og:image.height': '630',
         }
@@ -197,9 +197,9 @@ $().ready(function(){
 	    function(response) {
 	    if (response && !response.error_message) {
 	        // then get post content
-	        alert('successfully posted. Status id : '+response.post_id);
+	        console.log('successfully posted. Status id : '+response.post_id);
 	    } else {
-	        alert('Something went error.');
+	        console.log('Something went error.');
 	    }
 		});
 	})
