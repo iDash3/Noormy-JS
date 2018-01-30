@@ -156,7 +156,7 @@ $().ready(function(){
 						'og:url': window.location.href,
 						'og:title': 'Noormy - 1 Que Zac Efron eres?',
 						'og:description': 'Description: Simple description of the test.',
-						'og:image': 'http://via.placeholder.com/1200x900',
+						'og:image': 'https://picsum.photos/1200/900',
 						'og:image:width': '1200',
 						'og:image:height': '630',
 	        }
@@ -185,10 +185,10 @@ $().ready(function(){
 	    action_properties: JSON.stringify({
         object : {
 	      	// Experimental 2
-					'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
-					'og:title': 'Noormy - 1 Que Zac Efron eres?',
+					'og:url': window.location.href,
+					'og:title': 'Noormy - 2 Que Zac Efron eres?',
 					'og:description': 'Description: Simple description of the test.',
-					'og:image': 'http://via.placeholder.com/1200x900',
+					'og:image': 'https://picsum.photos/1200/900/?random',
         }
 	    })
     },
