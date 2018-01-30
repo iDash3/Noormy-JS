@@ -153,10 +153,10 @@ $().ready(function(){
 		    action_properties: JSON.stringify({
 	        object : {
 	        	// Experimental 1
-						'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
+						'og:url': window.location.href,
 						'og:title': 'Noormy - 1 Que Zac Efron eres?',
 						'og:description': 'Description: Simple description of the test.',
-						'og:image': 'http://via.placeholder.com/1200x630',
+						'og:image': 'http://via.placeholder.com/1200x900',
 						'og:image:width': '1200',
 						'og:image:height': '630',
 	        }
@@ -184,13 +184,11 @@ $().ready(function(){
 	    action_type: 'og.shares',
 	    action_properties: JSON.stringify({
         object : {
-	      	// Experimental 1
+	      	// Experimental 2
 					'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
 					'og:title': 'Noormy - 1 Que Zac Efron eres?',
 					'og:description': 'Description: Simple description of the test.',
-					'og:image': 'http://via.placeholder.com/1200x630',
-					'og:image.width': '1200',
-					'og:image.height': '630',
+					'og:image': 'http://via.placeholder.com/1200x900',
         }
 	    })
     },
