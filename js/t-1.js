@@ -188,7 +188,7 @@ $().ready(function(){
 					'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
 					'og:title': 'Noormy - 1 Que Zac Efron eres?',
 					'og:description': 'Description: Simple description of the test.',
-					'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',\
+					'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
 					'og:image.width': '1200',
 					'og:image.height': '630',
         }
