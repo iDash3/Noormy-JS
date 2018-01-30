@@ -144,6 +144,7 @@ $().ready(function(){
 			});
 			fbLoginStatus();
 		})
+
 	$('.fb-share')
 		.click(function(){
 			FB.ui({
@@ -155,7 +156,9 @@ $().ready(function(){
 						'og:url': 'https://idash3.github.io/Noormy-JS/base-1.html',
 						'og:title': 'Noormy - 1 Que Zac Efron eres?',
 						'og:description': 'Description: Simple description of the test.',
-						'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',
+						'og:image': 'https://idash3.github.io/Noormy-JS/static/ex-img/zac-profile.png',\
+						'og:image:width': '1200',
+						'og:image:height': '630',
 	        }
 		    })
 	    },
@@ -174,6 +177,7 @@ $().ready(function(){
 			source: 'https://i.imgur.com/0o1sDst.jpg',
 		})
 	})
+
 	$('#temp2').click(function(){
 		FB.ui({
 	    method: 'share_open_graph',
@@ -197,6 +201,7 @@ $().ready(function(){
 	    }
 		});
 	})
+	
 	$('#temp3').click(function(){
 		FB.ui({
 			method: 'share',
