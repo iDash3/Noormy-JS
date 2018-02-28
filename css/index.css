@@ -6,6 +6,9 @@ body{
 	padding: 0;
 	overflow-x: hidden;
 }
+
+
+/* Necessary header styles */
 #header-container{
 	background: #263238;
 	z-index:1000
@@ -43,7 +46,6 @@ body{
 .search-item{
 	padding: 3px;
 }
-
 #fb-login-item-large span:hover{
 	color: #03A9F4;
 	text-decoration: underline;
@@ -59,6 +61,11 @@ body{
 #fb-login-item-large,#fb-logout-item-large{
 	padding: 5px 15px 5px 5px;
 }
+#desplegable-menu{
+	margin: 3px;
+	background: none;
+	border: none;
+}
 #desplegable-menu:hover { 
 	filter:opacity(80%);
 }
@@ -67,6 +74,8 @@ body{
 	outline:0 !important;
 }
 
+
+/* After header styles */
 #after-header{
 	position: relative;
 	background-color: #FF5722;
@@ -78,89 +87,6 @@ body{
 	font-size: 25pt;
 	font-weight: 500;
 	color: white;
-}
-
-.post-img{
-	height: 200px;
-	border-radius: 10px;
-	box-shadow: -2px 2px 1px 1px #888888;
-}
-.test-img img{
-	border-radius: 10px;
-	width: 500px;
-}
-.post-title{
-	padding: 2px;
-}
-.index-row{
-	margin-top: 15px;
-}
-#menu-container{
-	padding: 45px 0 0 0; 
-	background-color: #FAFAFA;}
-#menu-container a{
-	color: #9E9E9E;
-	text-decoration: underline;
-	font-size: 15pt;
-}
-.active{
-	color: #292b2c !important;
-}
-#desplegable-menu{
-	margin: 3px;
-	background: none;
-	border: none;
-}
-
-.container-h {
-  position: relative;
-}
-.overlay {
-  border-radius: 10px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: rgba(0,0,0,0.6);
-}
-.container-h:hover .overlay {
-  opacity: 1;
-}
-
-.text-t{
-  color: #FFC107;
-  font-weight: 600;
-  font-size: 20px;
-  position: absolute;
-  top: 52%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-.icon-t{
-	position: absolute;
-	top: 50%;
-	left: 46%;
-  	transform: translate(-50%, -50%);
-  	-ms-transform: translate(-50%, -50%);
-}
-#footer-1{
-	padding: 0;
-	background-color: #FF5722;
-}
-#footer-2{
-	padding: 0;
-	background-color: #212121;
-	color: white;
-	font-size: 20px;
-}
-#footer-2 a:visited{
-	color: gray;
 }
 .flame-container{
 	margin: 5px;
@@ -191,6 +117,89 @@ body{
 }
 .flame-b:hover{background-color: #E64A19;}
 
+
+/* Test styles */
+.post-img{
+	height: 200px;
+	border-radius: 10px;
+	box-shadow: -2px 2px 1px 1px #888888;
+}
+.test-img img{
+	border-radius: 10px;
+	width: 500px;
+}
+.post-title{
+	padding: 2px;
+}
+.container-h {
+  position: relative;
+}
+.overlay {
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(0,0,0,0.6);
+}
+.container-h:hover .overlay {
+  opacity: 1;
+}
+.text-t{
+  color: #FFC107;
+  font-weight: 600;
+  font-size: 20px;
+  position: absolute;
+  top: 52%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.icon-t{
+	position: absolute;
+	top: 50%;
+	left: 46%;
+  	transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+}
+
+
+
+#menu-container{
+	padding: 45px 0 0 0; 
+	background-color: #FAFAFA;}
+#menu-container a{
+	color: #9E9E9E;
+	text-decoration: underline;
+	font-size: 15pt;
+}
+
+.active{
+	color: #292b2c !important;
+}
+
+
+/* Footer styles */
+#footer-1{
+	padding: 0;
+	background-color: #FF5722;
+}
+#footer-2{
+	padding: 0;
+	background-color: #212121;
+	color: white;
+	font-size: 20px;
+}
+#footer-2 a:visited{
+	color: gray;
+}
+
+
 /* Text styles. */
 .text-announce{
 	margin: 15px;
@@ -215,6 +224,7 @@ body{
 .orange{color:#FF9800;}
 .amber{color:#FFC107;}
 .deep-orange{color:#FF5722;}
+
 
 /* Change design on screen width. */
 @media screen and (min-width: 992px){

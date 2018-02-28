@@ -4,6 +4,41 @@ var custom_msg = [
   'you are part of us now!',
   'hope you enjoy the content!',
 ]
+// static/ex-img/nicholas-cage-tn-1.png
+var tm = 
+  '<div class="col-12 col-md-4 text-center">' +
+    '<a href=":test url:" title=":id:">' +
+      '<div class="container-h">' +
+        '<div class="test-img" alt="Test">' +
+          '<img src=":img url:" alt=":img alt:" class="img-fluid">' +
+        '</div>' +
+        '<div class="overlay">' +
+            '<img class="icon-t" src="static/icons/fire_centi_moreorange-3.png" alt="flame-icon">' +
+          '<div class="text-t">:likes:</div>' +
+        '</div>' +
+      '</div>' +
+    '</a>' +
+    '<div class="post-title text-center">' +
+      '<h5>' +
+        ':title:' +
+      '</h5>' +
+    '</div>' +
+  '</div>'
+
+function renderTest(tests){
+  tests.forEach(function(test){
+    let final_test = tm
+      .replace(':title:', test.title)
+      .replace(':id:', test.id)
+      .replace(':img url:', test.img_url)
+      .replace(':img alt:', test.title + 'Image')
+      .replace(':test url:', test.url)
+      .replace(':likes:', test.likes)
+    let $test = $(final_test)
+    $test.hide()
+  })
+}
+
 function fbLoginStatus(){
     FB.getLoginStatus(function(response) {
       console.log(response.status)
@@ -86,6 +121,7 @@ $().ready(function(){
       });
   })
 
+  // Make header sticky
   window.onscroll = function() {
     var header = document.getElementById("header-container");
     var sticky = 80

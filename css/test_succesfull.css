@@ -92,10 +92,14 @@ body{
   position: relative;
 }
 
-
-#fb-share-ct{
-	padding: 0;
+#container-one{
+	background-color: #FFF8E1;
 }
+
+#success-img{
+	height: 280px;
+}
+
 
 
 .overlay {

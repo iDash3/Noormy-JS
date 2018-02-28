@@ -147,29 +147,35 @@ $().ready(function(){
 
 	$('.fb-share')
 		.click(function(){
+			// FB.ui({
+		 //    method: 'share_open_graph',
+		 //    action_type: 'og.shares',
+		 //    action_properties: JSON.stringify({
+	  //       object : {
+	  //       	// Experimental 1
+			// 			'og:url': window.location.href,
+			// 			'og:title': 'Noormy - 1 Que Zac Efron eres?',
+			// 			'og:description': 'Description: Simple description of the test.',
+			// 			'og:image': 'https://picsum.photos/1200/900',
+			// 			'og:image:width': '1200',
+			// 			'og:image:height': '630',
+	  //       }
+		 //    })
+	  //   },
+		 //    function(response) {
+		 //    if (response && !response.error_message) {
+		 //        // then get post content
+		 //        console.log('successfully posted. Status id : '+response.post_id);
+		 //    } else {
+		 //        console.log('Something went error.');
+		 //    }
+			// });
+
 			FB.ui({
-		    method: 'share_open_graph',
-		    action_type: 'og.shares',
-		    action_properties: JSON.stringify({
-	        object : {
-	        	// Experimental 1
-						'og:url': window.location.href,
-						'og:title': 'Noormy - 1 Que Zac Efron eres?',
-						'og:description': 'Description: Simple description of the test.',
-						'og:image': 'https://picsum.photos/1200/900',
-						'og:image:width': '1200',
-						'og:image:height': '630',
-	        }
-		    })
-	    },
-		    function(response) {
-		    if (response && !response.error_message) {
-		        // then get post content
-		        console.log('successfully posted. Status id : '+response.post_id);
-		    } else {
-		        console.log('Something went error.');
-		    }
-			});
+			  method: 'feed',
+			  link: window.location.href,
+			  caption: 'An example caption',
+			}, function(response){});
 		})
 
 	$('#temp1').click(function(){
