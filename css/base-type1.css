@@ -6,8 +6,16 @@ body{
 	padding: 0;
 	overflow-x: hidden;
 }
+
+/* Header styles */
 #header-container{
-	background-color: #292b2c;
+	background: #263238;
+	z-index:1000
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 #main-title{
 	text-decoration: none;
@@ -20,12 +28,87 @@ body{
 	color: #F57C00;
 	text-decoration: underline;
 }
-.ad-img-md{
-	margin: 15px;
-	height: 100px;
-	width: 320px;
-	background-color: black;
+#header-1 #editor{color: #E0E0E0;}
+#header-1 #editor span{padding: 5px 8px;}
+#header-1 #editor span:hover{
+	color: #E65100;
+	text-decoration: underline;
 }
+#fb-logout-item-large img, #fb-login-item-large img{
+	height: 36px;
+}
+.search-item:hover{
+	background-color: #E65100;
+	border-radius: 10px;
+	padding: 3px;
+}
+.search-item{
+	padding: 3px;
+}
+#fb-login-item-large span:hover{
+	color: #03A9F4;
+	text-decoration: underline;
+}
+#fb-logout-item-large span:hover{
+	color: #FF5722;
+	text-decoration: underline;
+}
+#fb-login-item-large:hover, #fb-logout-item-large:hover{
+	background-color: #3b5999;
+	border-radius: 10px;
+}
+#fb-login-item-large,#fb-logout-item-large{
+	padding: 5px 15px 5px 5px;
+}
+#desplegable-menu{
+	margin: 3px;
+	background: none;
+	border: none;
+}
+#desplegable-menu:hover { 
+	filter:opacity(80%);
+}
+#desplegable-menu:focus { 
+	filter:opacity(50%);
+	outline:0 !important;
+}
+
+/* Main Section */
+#main-section{
+	background-color: #ECEFF1;
+	margin: 15px;
+}
+.test-main-title{
+	font-size: 25px;
+	font-weight: 500;
+	background-color: #CFD8DC;
+	color: #212121;
+}
+.main-test-img img{
+	width: 840px;
+}
+.text-fb{
+	font-weight: 300;
+	font-size: 25px;
+}
+#fb-button{
+	height: 170px;
+	width: 170px;
+}
+#fb-b:hover{background-color: #3b5999}
+.fb-share{
+	color: white;
+	font-size: 40px;
+	font-weight: 600;
+	padding: 15px 50px;
+	border-radius: 50px;
+	background-color: #3b5999;
+}
+#fb-share-ct{
+	padding: 0;
+}
+.fb-share:hover{background-color: #0D47A1}
+/* Main Section Right */
 .none-button{
 	margin: 3px;
 	background: none;
@@ -36,20 +119,13 @@ body{
 	border-radius: 35px;
 	background-color: white;
 }
-#desplegable-menu:hover { 
-	filter:opacity(80%);
-}
-#desplegable-menu:focus { 
-	filter:opacity(50%);
-}
+#fire-button:hover{filter:opacity(80%);}
+.fire-button-general:hover{background-color: #EEEEEE}
 .none-button:focus{
 	outline:0 !important;
 }
 
-.container-h {
-  position: relative;
-}
-
+/* Footer */
 #footer-1{
 	padding: 0;
 	background-color: #FF5722;
@@ -63,41 +139,12 @@ body{
 #footer-2 a:visited{
 	color: gray;
 }
-#main-section{
-	background-color: #ECEFF1;
+
+/* Related Tests Section */
+.text-announce{
 	margin: 15px;
+	font-size: 28px;
 }
-.main-test-img img{
-	width: 840px;
-}
-.text-fb{
-	font-weight: 300;
-	font-size: 25px;
-}
-#fb-button{
-	height: 170px;
-	width: 170px;
-}
-.post-img{
-	height: 200px;
-	background: linear-gradient(to top right, #FFC107, #FF5722);
-	border-radius: 10px;
-	box-shadow: -2px 2px 1px 1px #888888;
-}
-.post-title{
-	padding: 2px;
-}
-
-.container-h {
-  position: relative;
-}
-
-
-#fb-share-ct{
-	padding: 0;
-}
-
-
 .overlay {
   border-radius: 10px;
   position: absolute;
@@ -114,7 +161,9 @@ body{
 .container-h:hover .overlay {
   opacity: 1;
 }
-
+.container-h {
+  position: relative;
+}
 .text-t{
   color: #FFC107;
   font-weight: 600;
@@ -125,6 +174,15 @@ body{
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+.post-img{
+	height: 200px;
+	background: linear-gradient(to top right, #FFC107, #FF5722);
+	border-radius: 10px;
+	box-shadow: -2px 2px 1px 1px #888888;
+}
+.post-title{
+	padding: 2px;
+}
 .icon-t{
 	position: absolute;
 	top: 50%;
@@ -132,29 +190,14 @@ body{
   	transform: translate(-50%, -50%);
   	-ms-transform: translate(-50%, -50%);
 }
-.text-announce{
-	margin: 15px;
-	font-size: 28px;
-}
-.test-main-title{
-	font-size: 25px;
-	font-weight: 500;
-	background-color: #CFD8DC;
-	color: #212121;
-}
-#fb-b:hover{background-color: #3b5999}
-.fb-share{
-	color: white;
-	font-size: 40px;
-	font-weight: 600;
-	padding: 15px 50px;
-	border-radius: 50px;
-	background-color: #3b5999;
-}
-.fb-share:hover{background-color: #0D47A1}
-#fire-button:hover{filter:opacity(80%);}
-.fire-button-general:hover{background-color: #EEEEEE}
 
+/* Change text color */
+.blue{color:#2196F3;}
+.orange{color:#FF9800;}
+.amber{color:#FFC107;}
+.deep-orange{color:#FF5722;}
+
+/* Change Design on Screen*/
 @media screen and (min-width: 992px){
 	.fb-share{
 		padding: 15px 70px;

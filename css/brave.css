@@ -6,8 +6,16 @@ body{
 	padding: 0;
 	overflow-x: hidden;
 }
+
+/* Header styles */
 #header-container{
-	background-color: #292b2c;
+	background: #263238;
+	z-index:1000
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 #main-title{
 	text-decoration: none;
@@ -20,47 +28,37 @@ body{
 	color: #F57C00;
 	text-decoration: underline;
 }
-#after-header{
-	position: relative;
-	background-color: #FF5722;
-	/*background: linear-gradient(to top right, #ECEFF1, #03A9F4);*/
-	background: linear-gradient(to top, #FF9800,#FF5722); 
-	padding: 30px 0;
-}
-.after-header-1 span{
-	font-size: 30pt;
-	font-weight: 500;
-	color: white;
-}
-
-.post-img{
-	height: 200px;
-	border-radius: 10px;
-	box-shadow: -2px 2px 1px 1px #888888;
-}
-.test-img img{
-	border-radius: 10px;
-	width: 500px;
-}
-.post-title{
-	padding: 2px;
-}
-.index-row{
-	margin-top: 15px;
-}
-.ad-img{
-	margin: 15px;
-}
-#menu-container{
-	padding: 45px 0 0 0; 
-	background-color: #FAFAFA;}
-#menu-container a{
-	color: #9E9E9E;
+#header-1 #editor{color: #E0E0E0;}
+#header-1 #editor span{padding: 5px 8px;}
+#header-1 #editor span:hover{
+	color: #E65100;
 	text-decoration: underline;
-	font-size: 15pt;
 }
-.active{
-	color: #292b2c !important;
+#fb-logout-item-large img, #fb-login-item-large img{
+	height: 36px;
+}
+.search-item:hover{
+	background-color: #E65100;
+	border-radius: 10px;
+	padding: 3px;
+}
+.search-item{
+	padding: 3px;
+}
+#fb-login-item-large span:hover{
+	color: #03A9F4;
+	text-decoration: underline;
+}
+#fb-logout-item-large span:hover{
+	color: #FF5722;
+	text-decoration: underline;
+}
+#fb-login-item-large:hover, #fb-logout-item-large:hover{
+	background-color: #3b5999;
+	border-radius: 10px;
+}
+#fb-login-item-large,#fb-logout-item-large{
+	padding: 5px 15px 5px 5px;
 }
 #desplegable-menu{
 	margin: 3px;
@@ -75,45 +73,54 @@ body{
 	outline:0 !important;
 }
 
-
-.container-h {
-  position: relative;
+/*After Header*/
+#after-header{
+	position: relative;
+	background-color: #FF5722;
+	/*background: linear-gradient(to top right, #ECEFF1, #03A9F4);*/
+	background: linear-gradient(to top, #FF9800,#FF5722); 
+	padding: 30px 0;
+}
+.after-header-1 span{
+	font-size: 30pt;
+	font-weight: 500;
+	color: white;
 }
 
-.overlay {
-  border-radius: 10px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: rgba(0,0,0,0.6);
+/* Main container */
+#container-level{
+	border: 2px solid #9E9E9E;
+	border-radius: 5px;
 }
-.container-h:hover .overlay {
-  opacity: 1;
+#container-level p{
+	margin: 0;
+	padding: 0;
+	font-size: 25px;
+	font-weight: 500;
+	text-decoration: underline;
+}
+/* Individual containers */
+#midly{
+	background-color: #FFEB3B;
+	background: linear-gradient(to top, #FFEB3B,#FDD835); 
+	font-weight: 400;
+}
+#hot{
+	background-color: #FFC107;
+	background: linear-gradient(to top, #FFC107, #FFA000); 
+	font-weight: 600;
+}
+#super{
+	background-color: #FF5722;	
+	background: linear-gradient(to top, #FF5722,#E64A19); 
+	font-weight: 900;
+}
+#midly:hover, #hot:hover, #super:hover{
+	border: 3px solid #BF360C;
+	filter: brightness(97%);
 }
 
-.text-t{
-  color: #FFC107;
-  font-weight: 600;
-  font-size: 20px;
-  position: absolute;
-  top: 52%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-.icon-t{
-	position: absolute;
-	top: 50%;
-	left: 46%;
-  	transform: translate(-50%, -50%);
-  	-ms-transform: translate(-50%, -50%);
-}
+/* Footer */
 #footer-1{
 	padding: 0;
 	background-color: #FF5722;
@@ -127,61 +134,15 @@ body{
 #footer-2 a:visited{
 	color: gray;
 }
-.flame-container{
-	margin: 5px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-  	transform: translate(-50%, -50%);
-  	-ms-transform: translate(-50%, -50%);
- }
-.flame-container span{
-	font-size: 18px;
-	color: black;
-}
-#hot-container p {
-	font-size: 25px;
-}
-#midly{
-	background-color: #FFEB3B;
-	background: linear-gradient(to top, #FFEB3B,#FDD835); 
-	font-weight: 400;
-}
-#hot{
-	background-color: #FFC107;
-	background: linear-gradient(to top, #FFC107, #FFA000); 
-	font-weight: 600;
 
-}
-#super{
-	background-color: #FF5722;	
-	background: linear-gradient(to top, #FF5722,#E64A19); 
-	font-weight: 900;
-}
-#midly:hover, #hot:hover, #super:hover{
-	border: 3px solid #BF360C;
-	filter: brightness(97%);
-}
-#midly, #hot, #super{
-	margin: 1px;
-}
 /* Change text color */
 .blue{color:#2196F3;}
 .orange{color:#FF9800;}
 .amber{color:#FFC107;}
 .deep-orange{color:#FF5722;}
 
-#container-level{
-	border: 2px solid #9E9E9E;
-	border-radius: 5px;
-}
-#container-level p{
-	margin: 0;
-	padding: 0;
-	font-size: 25px;
-	font-weight: 500;
-	text-decoration: underline;
-}
+
+/* Change design on device */
 @media screen and (min-width: 992px){
 	.after-header-1 span{
 	font-size: 35pt;

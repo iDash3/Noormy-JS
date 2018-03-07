@@ -3,7 +3,24 @@ var ctx = canvas.getContext('2d')
 var canvas_width = canvas.width
 var canvas_height = canvas.height
 
+var mainTitle = document.getElementById('mainTitle')
+var secondaryTitle = document.getElementById('secondaryTitle')
+
+var colori1 = document.getElementById('color1')
+var colori2 = document.getElementById('color2')
+
 loadTest()
+
+function updateCanvas(){
+	let c1 = colori1.value
+	let c2 = colori2.value
+	background(ctx, c1, c2, 'linear')
+	let main = mainTitle.value
+	let second = secondaryTitle.value 
+	addTitle(ctx, main, 'title');
+}
+
+
 
 function loadTest(){
 	// background(ctx, '#8BC34A', '#FF9800', 'linear')

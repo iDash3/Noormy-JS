@@ -4,7 +4,6 @@ var custom_msg = [
   'you are part of us now!',
   'hope you enjoy the content!',
 ]
-// static/ex-img/nicholas-cage-tn-1.png
 var tm = 
   '<div class="col-12 col-md-4 text-center">' +
     '<a href=":test url:" title=":id:">' +
